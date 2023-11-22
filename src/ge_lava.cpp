@@ -14,18 +14,18 @@ void Lava::Load(float terrain_size, Shader *Shader, Data *Data)
     data = Data;
 
     lavaBuffer[0] = 0.0f;
-    lavaBuffer[1] = 1.0f;
+    lavaBuffer[1] = 16.0f;
     lavaBuffer[2] = terrain_size;
     lavaBuffer[3] = 0.0f;
     lavaBuffer[4] = 0.0f;
 
-    lavaBuffer[5] = 1.0f;
-    lavaBuffer[6] = 1.0f;
+    lavaBuffer[5] = 16.0f;
+    lavaBuffer[6] = 16.0f;
     lavaBuffer[7] = 0.0f;
     lavaBuffer[8] = 0.0f;
     lavaBuffer[9] = 0.0f;
 
-    lavaBuffer[10] = 1.0f;
+    lavaBuffer[10] = 16.0f;
     lavaBuffer[11] = 0.0f;
     lavaBuffer[12] = 0.0f;
     lavaBuffer[13] = 0.0f;

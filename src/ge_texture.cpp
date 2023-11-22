@@ -47,6 +47,7 @@ bool Texture::Load(const char *filename,int type,int wraps,int wrapt,int magf,in
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 
+
 	return true;
 }
 int Texture::GetID()
