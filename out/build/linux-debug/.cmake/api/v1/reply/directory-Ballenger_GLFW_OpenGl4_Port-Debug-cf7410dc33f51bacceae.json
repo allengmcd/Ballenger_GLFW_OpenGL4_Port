@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "Ballenger_GLFW_OpenGl4_Port",
+		"source" : "Ballenger_GLFW_OpenGl4_Port"
+	}
+}
