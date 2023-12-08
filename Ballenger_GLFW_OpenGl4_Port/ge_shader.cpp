@@ -40,6 +40,8 @@ void Shader::Load()
 	char terrain_vert[] = "Shaders/terrain.vert\0";
 	char skybox_vert[] = "Shaders/skybox.vert\0";
 	char skybox_frag[] = "Shaders/skybox.frag\0";
+	char player_vert[] = "Shaders/player.vert\0";
+	char player_frag[] = "Shaders/player.frag\0";
 	//char textured[] = "Shaders/textured.frag\0";
 	
 	int success;
@@ -241,6 +243,41 @@ void Shader::Load()
 		std::cout << "PROGRAM_SKYBOX" << std::endl;
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
     }
+
+
+
+	programs[PROGRAM_PLAYER] = glCreateProgram();
+		shader = glCreateShader(GL_VERTEX_SHADER);
+		load_shader(shader,player_vert);
+		glCompileShader(shader);
+		glAttachShader(programs[PROGRAM_PLAYER], shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << "PROGRAM_PLAYER" << std::endl;
+			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+
+		shader = glCreateShader(GL_FRAGMENT_SHADER);
+		load_shader(shader,player_frag);
+		glCompileShader(shader);
+		glAttachShader(programs[PROGRAM_PLAYER], shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << "PROGRAM_PLAYER" << std::endl;
+			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+		glLinkProgram(programs[PROGRAM_PLAYER]);
+	glGetProgramiv(shader, GL_LINK_STATUS, &success);
+	if (!success) {
+        glGetProgramInfoLog(shader, 512, NULL, infoLog);
+		std::cout << "PROGRAM_PLAYER" << std::endl;
+        std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+    }
+	
 	
 
 	glDeleteShader(shader);

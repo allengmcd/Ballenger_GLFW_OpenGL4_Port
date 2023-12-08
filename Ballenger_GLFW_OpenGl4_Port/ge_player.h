@@ -16,7 +16,7 @@ public:
 	Player();
 	~Player();
 
-	void Draw(Data *Data, Camera *Camera, Lava *Lava,Shader *Shader);
+	void Draw(Data *data, Camera *camera, Lava *lava,Shader *shader);
 	void SetFade(bool b);
 	void Load();
 	void RenderSphere();

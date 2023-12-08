@@ -4,7 +4,7 @@
 
 
 //Program array size
-#define NUM_PROGRAMS 6
+#define NUM_PROGRAMS 7
 
 //Program identifiers
 enum {
@@ -13,7 +13,8 @@ enum {
 	PROGRAM_SIMPLE_LIGHTBALL,
 	PROGRAM_LAVAGLOW,
 	PROGRAM_COMPLEX_NORMALMAP,
-	PROGRAM_SKYBOX
+	PROGRAM_SKYBOX,
+    PROGRAM_PLAYER
 };
 
 class Shader

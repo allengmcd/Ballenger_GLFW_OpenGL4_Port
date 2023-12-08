@@ -34,6 +34,7 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	scene.LoadLevel(1,&terrain,&shader,&data,&lava);
 
 	//Player initialization
+	player.Load();
 	player.SetPos(TERRAIN_SIZE/2, terrain.GetHeight(TERRAIN_SIZE/2,TERRAIN_SIZE/2)+RADIUS,TERRAIN_SIZE/2);
 
 	camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));

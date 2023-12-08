@@ -95,7 +95,7 @@ void Player::Load()
 
 }
 
-void Player::Draw(Data *Data, Camera *Camera, Lava *Lava, Shader *Shader)
+void Player::Draw(Data *data, Camera *camera, Lava *lava, Shader *shader)
 {
 
 	char colorMap_name[] = "colorMap\0";
@@ -105,8 +105,21 @@ void Player::Draw(Data *Data, Camera *Camera, Lava *Lava, Shader *Shader)
 	char lava_height_name[] = "lava_height\0";
 	char posy_name[] = "posy\0";
 
+	char texture1[] = "texture1\0";
 
-    glBindVertexArray(playerVAO);
+	glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4 view =  camera->GetViewMatrix(); // remove translation from the view matrix
+	glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)camera->SCR_WIDTH/(float)camera->SCR_HEIGHT, 0.1f, 1000.0f);
+
+
+    model = glm::translate(model, glm::vec3(GetX(), GetY(), GetZ()));
+
+   	glBindVertexArray(playerVAO);
+	shader->Activate(PROGRAM_PLAYER);
+	shader->setMat4("model", model);
+	shader->setMat4("view", view);
+	shader->setMat4("projection", projection);
+
     glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
 
 	// glPushMatrix();
