@@ -82,120 +82,108 @@ build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
+
+build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_column.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_column.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
+  DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_column.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
+  OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_data.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_data.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_data.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_game.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_game.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_game.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_image.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_image.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_image.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_key.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_key.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_key.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_lava.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_lava.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_lava.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_model.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_model.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_model.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_player.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_player.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_player.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
+
+build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_portal.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_portal.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
+  DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_portal.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
+  OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
+
+build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_respawnPoint.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_respawnPoint.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
+  DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_respawnPoint.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
+  OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_scene.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_scene.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_scene.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_shader.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_shader.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_shader.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_skybox.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_skybox.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_skybox.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_terrain.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_terrain.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_terrain.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_texture.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/ge_texture.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_texture.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/glad.c.o: C_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/glad.c || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/glad.c.o.d
   FLAGS = -g
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/main.cpp.o: CXX_COMPILER__Ballenger_GLFW_OpenGl4_Port_Debug /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/main.cpp || cmake_object_order_depends_target_Ballenger_GLFW_OpenGl4_Port
   DEP_FILE = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   OBJECT_FILE_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
 
 
 # =============================================================================
@@ -205,15 +193,14 @@ build Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/mai
 #############################################
 # Link the executable Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port
 
-build Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port: CXX_EXECUTABLE_LINKER__Ballenger_GLFW_OpenGl4_Port_Debug Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_bicho.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_data.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_game.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_image.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_key.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_lava.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_model.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_player.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_scene.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_shader.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_skybox.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_terrain.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_texture.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/glad.c.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/main.cpp.o | /usr/lib/x86_64-linux-gnu/libglfw.so.3.3 /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libGLU.so
+build Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port: CXX_EXECUTABLE_LINKER__Ballenger_GLFW_OpenGl4_Port_Debug Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_bicho.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_column.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_data.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_game.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_image.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_key.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_lava.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_model.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_player.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_portal.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_respawnPoint.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_scene.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_shader.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_skybox.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_terrain.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/ge_texture.cpp.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/glad.c.o Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/main.cpp.o | /usr/lib/x86_64-linux-gnu/libglfw.so.3.3 /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libGLU.so
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libglfw.so.3.3  /usr/lib/x86_64-linux-gnu/libGLEW.so  /usr/lib/x86_64-linux-gnu/libGL.so  /usr/lib/x86_64-linux-gnu/libGLU.so
   OBJECT_DIR = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir/
   TARGET_FILE = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port
-  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port/Ballenger_GLFW_OpenGl4_Port.pdb
+  TARGET_PDB = Ballenger_GLFW_OpenGl4_Port.dbg
 
 
 #############################################
@@ -267,14 +254,14 @@ build Ballenger_GLFW_OpenGl4_Port/all: phony Ballenger_GLFW_OpenGl4_Port/Balleng
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../../../Ballenger_GLFW_OpenGl4_Port/CMakeLists.txt ../../../CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets.cmake /usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeNinjaFindMake.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/FindGLEW.cmake /usr/share/cmake-3.22/Modules/FindOpenGL.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.22/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../../../Ballenger_GLFW_OpenGl4_Port/CMakeLists.txt ../../../CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets.cmake /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindGLEW.cmake /usr/share/cmake-3.22/Modules/FindOpenGL.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.22/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../../../Ballenger_GLFW_OpenGl4_Port/CMakeLists.txt ../../../CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets.cmake /usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeNinjaFindMake.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/Compiler/HP-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake-3.22/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake-3.22/Modules/FindGLEW.cmake /usr/share/cmake-3.22/Modules/FindOpenGL.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.22/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
+build ../../../Ballenger_GLFW_OpenGl4_Port/CMakeLists.txt ../../../CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets.cmake /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindGLEW.cmake /usr/share/cmake-3.22/Modules/FindOpenGL.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.22/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
 
 
 #############################################

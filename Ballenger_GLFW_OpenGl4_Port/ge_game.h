@@ -6,8 +6,11 @@
 #include "ge_skybox.h"
 #include "ge_terrain.h"
 #include "ge_model.h"
+#include "ge_column.h"
 #include "ge_key.h"
 #include "ge_player.h"
+#include "ge_portal.h"
+#include "ge_respawnPoint.h"
 
 
 #define SCREEN_WIDTH	800
@@ -66,6 +69,10 @@ private:
 	unsigned int respawn_id;
 	bool noclip,portal_activated;
 	float time,ang, noclipSpeedF;
+	std::vector<RespawnPoint> respawn_points;
+	std::vector<Key> target_keys;
+	std::vector<Column> columns;
+	Portal portal;
 	Data data;
 	Shader shader;
 	Scene scene;
@@ -74,6 +81,7 @@ private:
 	Model model;
 	Player player;
 	GLFWwindow *window;
+	Key key;
 
 	//void Physics(Bicho &object);
 };

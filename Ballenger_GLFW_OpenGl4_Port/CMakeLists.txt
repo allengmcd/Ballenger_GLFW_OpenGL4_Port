@@ -19,42 +19,23 @@ include_directories(${GLFW_INCLUDE_DIRS})
 include_directories(${OPENGL_INCLUDE_DIRS})
 
 
-# Add source to this project's executable.
-add_executable (Ballenger_GLFW_OpenGl4_Port 
-  conio.h   
-  ge_bicho.cpp  
-  ge_bicho.h     
-  ge_camera.h
-  ge_data.cpp  
-  ge_data.h  
-  ge_filesystem.h
-  ge_game.cpp 
-  ge_game.h  
-  ge_image.cpp  
-  ge_image.h   
-  ge_key.cpp  
-  ge_key.h  
-  ge_lava.cpp   
-  ge_lava.h 
-  ge_model.cpp 
-  ge_model.h 
-  ge_player.cpp 
-  ge_player.h
-  ge_scene.cpp 
-  ge_scene.h
-  ge_shader.cpp             
-  ge_shader.h               
-  ge_skybox.cpp             
-  ge_skybox.h                 
-  ge_terrain.cpp            
-  ge_terrain.h              
-  ge_texture.cpp            
-  ge_texture.h              
-  glad.c                    
-  Globals.h                 
-  main.cpp
-  stb_image.h
+set(C_SOURCES "")
+
+# add executables 
+file(GLOB C_FILES
+      "*.cpp"
+      "*.h"
+      "*.c"
 )
+
+foreach(C_FILE ${C_FILES})
+  list(APPEND C_SOURCES
+  ${C_FILE})
+endforeach(MODEL)
+
+add_executable(Ballenger_GLFW_OpenGl4_Port 
+  ${C_SOURCES})
+
 
 target_link_libraries(Ballenger_GLFW_OpenGl4_Port PRIVATE glfw ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES})
 

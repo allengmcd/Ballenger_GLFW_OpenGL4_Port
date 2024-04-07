@@ -28,10 +28,64 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	shader.Load();
 
 	//Model initialization
-	model.Load();
-
+	model.Load(&shader,&data);
+	
 	//level initialization(terrain, lava and skybox)
 	scene.LoadLevel(1,&terrain,&shader,&data,&lava);
+
+	float test = terrain.GetHeight(345,229);
+	test = terrain.GetHeight(883,141);
+	test = terrain.GetHeight(268,860);
+	test = terrain.GetHeight(780,858);
+	test = terrain.GetHeight(265,487);
+
+
+	// //columns initialization
+	Column col;
+	col.SetColumn(TERRAIN_SIZE/2+18,terrain.GetHeight(TERRAIN_SIZE/2+18,TERRAIN_SIZE/2+8),TERRAIN_SIZE/2+8,   90);
+	columns.push_back(col);
+	col.SetColumn(TERRAIN_SIZE/2+14,terrain.GetHeight(TERRAIN_SIZE/2+14,TERRAIN_SIZE/2-8),TERRAIN_SIZE/2-8,   90);
+	columns.push_back(col);
+	col.SetColumn(TERRAIN_SIZE/2,terrain.GetHeight(TERRAIN_SIZE/2,TERRAIN_SIZE/2-16),TERRAIN_SIZE/2-16,      180);
+	columns.push_back(col);
+	col.SetColumn(TERRAIN_SIZE/2-14,terrain.GetHeight(TERRAIN_SIZE/2-14,TERRAIN_SIZE/2-8),TERRAIN_SIZE/2-8,  -90);
+	columns.push_back(col);
+	col.SetColumn(TERRAIN_SIZE/2-18,terrain.GetHeight(TERRAIN_SIZE/2-18,TERRAIN_SIZE/2+8),TERRAIN_SIZE/2+8,  -90);
+	columns.push_back(col);
+
+
+	key.SetPos(883,terrain.GetHeight(883,141),141);
+	target_keys.push_back(key);
+	key.SetPos(345,terrain.GetHeight(345,229),229);
+	target_keys.push_back(key);
+	key.SetPos(268,terrain.GetHeight(268,860),860);
+	target_keys.push_back(key);
+	key.SetPos(780,terrain.GetHeight(780,858),858);
+	target_keys.push_back(key);
+	key.SetPos(265,terrain.GetHeight(265,487),487);
+	target_keys.push_back(key);
+
+
+	RespawnPoint rp;
+	rp.SetPos(TERRAIN_SIZE/2,terrain.GetHeight(TERRAIN_SIZE/2,TERRAIN_SIZE/2),TERRAIN_SIZE/2);
+	respawn_points.push_back(rp);
+	rp.SetPos(256,terrain.GetHeight(256,160),160);
+	respawn_points.push_back(rp);
+	rp.SetPos(840,terrain.GetHeight(840,184),184);
+	respawn_points.push_back(rp);
+	rp.SetPos(552,terrain.GetHeight(552,760),760);
+	respawn_points.push_back(rp);
+	rp.SetPos(791,terrain.GetHeight(791,850),850);
+	respawn_points.push_back(rp);
+	rp.SetPos(152,terrain.GetHeight(152,832),832);
+	respawn_points.push_back(rp);
+	rp.SetPos(448,terrain.GetHeight(448,944),944);
+	respawn_points.push_back(rp);
+	rp.SetPos(816,terrain.GetHeight(816,816),816);
+	respawn_points.push_back(rp);
+
+	//Portal initialization
+	portal.SetPos(TERRAIN_SIZE/2,terrain.GetHeight(TERRAIN_SIZE/2,TERRAIN_SIZE/2+32),TERRAIN_SIZE/2+32);
 
 	//Player initialization
 	player.Load();
@@ -75,6 +129,56 @@ void Game::Render()
 	
 	//draw player
 	player.Draw(&data,camera,&lava,&shader);
+
+
+	//target_keys[0].DrawLevitating(camera,&shader,&model,&data, 100);
+	//draw keys
+	glm::vec4 key_color = glm::vec4(0.0f,0.0f,0.0f,0.0f);
+	for(unsigned int i=0; i<target_keys.size(); i++)
+	{
+		if(i==0) key_color = glm::vec4(1.0f,0.0f,0.0f,1.0f); //rojo
+		if(i==1) key_color = glm::vec4(1.0f,1.0f,0.0f,1.0f); //amarillo
+		if(i==2) key_color = glm::vec4(0.0f,1.0f,0.0f,1.0f); //verde
+		if(i==3) key_color = glm::vec4(0.2f,0.2f,1.0f,1.0f); //azul
+		if(i==4) key_color = glm::vec4(1.0f,0.0f,1.0f,1.0f); //violeta
+
+		target_keys[i].DrawLevitating(camera,&shader,&model,&data, key_color, i);
+	}
+	
+	Coord P; P.x = player.GetX(); P.y = player.GetY(); P.z = player.GetZ();
+	float r = RADIUS;
+
+	if(pickedkey_id != -1)
+	{
+		if( columns[pickedkey_id].InsideGatheringArea(P.x,P.y,P.z) )
+		{
+			//Sound.Play(SOUND_UNLOCK);
+			//Sound.Play(SOUND_ENERGYFLOW);
+			target_keys[pickedkey_id].Deploy();
+			pickedkey_id = -1;
+			if(respawn_id)
+			{
+				//Sound.Play(SOUND_SWISH);
+				respawn_id = 0;
+			}
+			bool all_keys_deployed = true;
+			for(unsigned int i=0; all_keys_deployed && i<target_keys.size(); i++) all_keys_deployed = target_keys[i].IsDeployed();
+			portal_activated = all_keys_deployed;
+			//if(portal_activated) Sound.Play(SOUND_WARP);
+		}
+	}
+
+	for(unsigned int i=0; i<columns.size(); i++) columns[i].Draw(&shader,&model,&data,camera,i);
+
+	//draw respawn points
+	for(unsigned int i=0; i<respawn_points.size(); i++)
+	{
+		if(i==respawn_id) respawn_points[i].Draw(data.GetID(IMG_CIRCLE_ON),true,&shader,camera);
+		else respawn_points[i].Draw(data.GetID(IMG_CIRCLE_OFF),false,&shader,camera);
+	}
+
+	//draw portal
+	portal.Draw(&data,portal_activated,&shader,&model,camera);
 
 	// if(abs(camera.GetZ()-Portal.GetZ()) < Camera.GetDistance())
 	// {

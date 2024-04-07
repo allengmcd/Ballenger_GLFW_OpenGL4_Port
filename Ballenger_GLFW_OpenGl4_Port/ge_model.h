@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Globals.h"
+#include "ge_camera.h"
+#include "ge_shader.h"
+#include "ge_data.h"
 
 //Model array size
 #define NUM_MODELS 3
@@ -17,11 +20,16 @@ class Model
 public:
 	Model();
 	~Model();
-	void Load();
+	void Load(Shader *Shader, Data *Data);
 	void Draw(int model_id);
+	unsigned int playerVAO;
+	unsigned int indexCount;
 
 private:
-	int models[NUM_MODELS]; //dentro guardare los identificadores a las displaylist de cada modelo
+	unsigned int models[NUM_MODELS]; 
+	unsigned int modelsVertices[NUM_MODELS]; 
+	Shader *shader;
+	Data *data;
 
-	int GetDisplayList(char* path);
+	int GetDisplayList(char* path, unsigned int vertices_key);
 };

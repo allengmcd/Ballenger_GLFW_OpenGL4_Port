@@ -28,20 +28,22 @@ void Shader::Load()
 {
 	GLuint shader;
 
-	char complex[] = "Shaders/complex.vert\0";
+	char complex[] = "../../../../Shaders/complex.vert\0";
 	//char explosion[] = "Shaders/explosion.geom\0";
-	char lavaglow_frag[] = "Shaders/lavaglow.frag\0";
-	char lavaglow_vert[] = "Shaders/lavaglow.vert\0";
-	char lightball[] = "Shaders/lightball.frag\0";
-	char lightbeam[] = "Shaders/lightbeam.frag\0";
-	char normalmap[] = "Shaders/normalmap.frag\0";
-	char simple[] = "Shaders/simple.vert\0";
-	char terrain_frag[] = "Shaders/terrain.frag\0";
-	char terrain_vert[] = "Shaders/terrain.vert\0";
-	char skybox_vert[] = "Shaders/skybox.vert\0";
-	char skybox_frag[] = "Shaders/skybox.frag\0";
-	char player_vert[] = "Shaders/player.vert\0";
-	char player_frag[] = "Shaders/player.frag\0";
+	char lavaglow_frag[] = "../../../../Shaders/lavaglow.frag\0";
+	char lavaglow_vert[] = "../../../../Shaders/lavaglow.vert\0";
+	char lightball[] = "../../../../Shaders/lightball.frag\0";
+	char lightbeam[] = "../../../../Shaders/lightbeam.frag\0";
+	char normalmap[] = "../../../../Shaders/normalmap.frag\0";
+	char simple[] = "../../../../Shaders/simple.vert\0";
+	char terrain_frag[] = "../../../../Shaders/terrain.frag\0";
+	char terrain_vert[] = "../../../../Shaders/terrain.vert\0";
+	char skybox_vert[] = "../../../../Shaders/skybox.vert\0";
+	char skybox_frag[] = "../../../../Shaders/skybox.frag\0";
+	char player_vert[] = "../../../../Shaders/player.vert\0";
+	char player_frag[] = "../../../../Shaders/player.frag\0";
+	char key_vert[] = "../../../../Shaders/key.vert\0";
+	char key_frag[] = "../../../../Shaders/key.frag\0";
 	//char textured[] = "Shaders/textured.frag\0";
 	
 	int success;
@@ -275,6 +277,38 @@ void Shader::Load()
 	if (!success) {
         glGetProgramInfoLog(shader, 512, NULL, infoLog);
 		std::cout << "PROGRAM_PLAYER" << std::endl;
+        std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+    }
+
+	programs[PROGRAM_KEY] = glCreateProgram();
+		shader = glCreateShader(GL_VERTEX_SHADER);
+		load_shader(shader,key_vert);
+		glCompileShader(shader);
+		glAttachShader(programs[PROGRAM_KEY], shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << "PROGRAM_KEY" << std::endl;
+			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+
+		shader = glCreateShader(GL_FRAGMENT_SHADER);
+		load_shader(shader,key_frag);
+		glCompileShader(shader);
+		glAttachShader(programs[PROGRAM_KEY], shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << "PROGRAM_KEY" << std::endl;
+			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+		glLinkProgram(programs[PROGRAM_KEY]);
+	glGetProgramiv(shader, GL_LINK_STATUS, &success);
+	if (!success) {
+        glGetProgramInfoLog(shader, 512, NULL, infoLog);
+		std::cout << "PROGRAM_KEY" << std::endl;
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
     }
 	

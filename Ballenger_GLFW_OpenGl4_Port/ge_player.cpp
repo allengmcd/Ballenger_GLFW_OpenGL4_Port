@@ -114,14 +114,15 @@ void Player::Draw(Data *data, Camera *camera, Lava *lava, Shader *shader)
 
     model = glm::translate(model, glm::vec3(GetX(), GetY(), GetZ()));
 
-   	glBindVertexArray(playerVAO);
 	shader->Activate(PROGRAM_PLAYER);
 	shader->setMat4("model", model);
 	shader->setMat4("view", view);
 	shader->setMat4("projection", projection);
 
+   	glBindVertexArray(playerVAO);
     glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
 
+	glBindVertexArray(0);
 	// glPushMatrix();
 	// glTranslatef(GetX(),GetY(),GetZ());
 
