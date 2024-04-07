@@ -5,6 +5,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+
 #include <vector>
 
 #define STATE_FPS         0
@@ -31,7 +32,8 @@ const float SENSITIVITY =  0.1f;
 const float ZOOM        =  45.0f;
 const float ZNEAR       = 0.1f;
 const float ZFAR		= 100.0f;
-
+const float MAX_DISTANCE = 10.0f;
+const float SMOOTHING_SPEED = 0.01f;
 
 // An abstract camera class that processes input and calculates the corresponding Euler Angles, Vectors and Matrices for use in OpenGL
 class Camera
@@ -50,6 +52,8 @@ public:
     float MovementSpeed;
     float MouseSensitivity;
     float Zoom;
+	float Lambda;
+    float Distance;
 	unsigned int SCR_WIDTH = 800;
 	unsigned int SCR_HEIGHT = 600;
 
@@ -150,6 +154,36 @@ public:
 	{
 		return state;
 	}
+	
+
+    void Refresh()
+    {
+        Front = glm::vec3(cos(Yaw) * cos(Pitch), sin(Pitch), sin(Yaw) * cos(Pitch));
+
+        // glMatrixMode(GL_MODELVIEW);
+        // glLoadIdentity();
+        glm::lookAt(Position, Position + Front, Up);
+    }
+
+    float GetLavaLambda(float Py,float Qy,float height)
+    {
+        float Vy = Qy - Py;
+        float D = -height;
+        if(Vy == 0.0f) return 1.0f;
+        float lambda = -(Py + D) / Vy;
+        if(lambda < 0.0f || lambda > 1.0f) return 1.0f;
+        return lambda;
+    }
+
+    void SetPos(float posx, float posy, float posz)
+    {
+        Position = glm::vec3(posx, posy, posz);
+
+        Refresh();
+    }
+
+	//void Update(Terrain *terrain,Lava *lava,float player_x,float player_y,float player_z);
+
 
 private:
 	int state;

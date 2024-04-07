@@ -121,6 +121,10 @@ void processInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
+    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
+        game.ToggleCamera(true);
+    if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+        game.ToggleCamera(false);
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         game.camera->ProcessKeyboard(FORWARD, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)

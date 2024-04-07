@@ -4,7 +4,10 @@
 
 unsigned int loadCubemap(std::vector<std::string> faces);
 
-Game::Game(void) {}
+Game::Game(void) 
+{
+	debug_camera_active = true;
+}
 Game::~Game(void){}
 
 
@@ -91,7 +94,9 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	player.Load();
 	player.SetPos(TERRAIN_SIZE/2, terrain.GetHeight(TERRAIN_SIZE/2,TERRAIN_SIZE/2)+RADIUS,TERRAIN_SIZE/2);
 
-	camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
+	player_camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
+	debug_camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
+	camera = player_camera;
 
 	//sound.Play(SOUND_AMBIENT); //TODO: this causes segfault
 	//sound.PlayBounce(.25f); //TODO: So does this
@@ -122,6 +127,7 @@ void Game::Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	if(state != STATE_LIVELOSS) lava.Update();
+	playerCamera.Update(player_camera,&terrain, &lava, player.GetX(), player.GetY(), player.GetZ());
 
 	//skybox.Draw(camera);
 	scene.Draw(&terrain,&shader,camera,&data,&lava);
@@ -247,4 +253,17 @@ void Game::Render()
 	
 
 	glfwSwapBuffers(window);
+}
+
+
+void Game::ToggleCamera(bool debug_camera_active)
+{
+	if(debug_camera_active)
+	{
+		camera = debug_camera;
+	}
+	else
+	{
+		camera = player_camera;
+	}
 }

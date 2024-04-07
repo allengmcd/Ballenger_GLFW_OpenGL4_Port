@@ -11,6 +11,7 @@
 #include "ge_player.h"
 #include "ge_portal.h"
 #include "ge_respawnPoint.h"
+#include "ge_playerCamera.h"
 
 
 #define SCREEN_WIDTH	800
@@ -42,6 +43,9 @@ public:
 	Game(void);
 	virtual ~Game(void);
 
+	PlayerCamera playerCamera;
+	Camera *debug_camera;
+	Camera *player_camera;
 	Camera *camera;
 
     unsigned int skyboxVAO, skyboxVBO;
@@ -61,6 +65,7 @@ public:
 	//Output
 	void Reshape(int w, int h);
 	void Render();
+	void ToggleCamera(bool debug_camera_active);
 
 private:
 	unsigned char keys[256];
@@ -68,6 +73,7 @@ private:
 	int level,state,pickedkey_id;
 	unsigned int respawn_id;
 	bool noclip,portal_activated;
+	bool debug_camera_active;
 	float time,ang, noclipSpeedF;
 	std::vector<RespawnPoint> respawn_points;
 	std::vector<Key> target_keys;
