@@ -111,7 +111,14 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
     lastX = xpos;
     lastY = ypos;
 
-    game.camera->ProcessMouseMovement(xoffset, yoffset);
+    // if(!game.debug_camera)
+    // {
+    //     game.camera->ProcessMouseMovement(xoffset, yoffset);
+    // }
+    // else
+    // {
+        game.ReadMouseMotion(xoffset, yoffset);
+    // }
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
@@ -126,13 +133,58 @@ void processInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
         game.ToggleCamera(false);
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    {        
         game.camera->ProcessKeyboard(FORWARD, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_W, 0, 0, true);
+    }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    {
         game.camera->ProcessKeyboard(BACKWARD, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_S, 0, 0, true);
+    }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    {
         game.camera->ProcessKeyboard(LEFT, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_A, 0, 0, true);
+    }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    {
         game.camera->ProcessKeyboard(RIGHT, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_D, 0, 0, true);
+    }
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+    {
+        //game.camera->ProcessKeyboard(RIGHT, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_SPACE, 0, 0, true);
+    }
+
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_RELEASE)
+    {        
+        //game.camera->ProcessKeyboard(FORWARD, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_W, 0, 0, false);
+    }
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_RELEASE)
+    {
+        //game.camera->ProcessKeyboard(BACKWARD, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_S, 0, 0, false);
+    }
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_RELEASE)
+    {
+        //game.camera->ProcessKeyboard(LEFT, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_A, 0, 0, false);
+    }
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_RELEASE)
+    {
+        //game.camera->ProcessKeyboard(RIGHT, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_D, 0, 0, false);
+    }
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
+    {
+        //game.camera->ProcessKeyboard(RIGHT, deltaTime);
+        game.ReadKeyboard(GLFW_KEY_SPACE, 0, 0, false);
+    }
+
     if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
         game.camera->MovementSpeed_Handler(SHIFT_PRESSED, deltaTime);
     if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)

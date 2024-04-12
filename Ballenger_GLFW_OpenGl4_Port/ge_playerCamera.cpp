@@ -8,10 +8,10 @@ void PlayerCamera::Update(Camera *camera, Terrain *terrain, Lava *lava, float pl
 {
     camera->Front = glm::vec3(cos(camera->Yaw) * cos(camera->Pitch), sin(camera->Pitch), sin(camera->Yaw) * cos(camera->Pitch));
 
-    //camera sigue a player
-    if(camera->GetState() == STATE_FPS) camera->SetPos(player_x, player_y + 0.5, player_z);
-    else
-    {
+    // //camera sigue a player
+    // if(camera->GetState() == STATE_FPS) camera->SetPos(player_x, player_y + 0.5, player_z);
+    // else
+    // {
         float newLambda = terrain->GetSegmentIntersectionLambda(player_x,player_y,player_z, camera->Front.x,camera->Front.y,camera->Front.z, MAX_DISTANCE);
         newLambda = std::min( newLambda , camera->GetLavaLambda(player_y,player_y - MAX_DISTANCE*camera->Front.y,lava->GetHeight()) );
 
@@ -22,10 +22,11 @@ void PlayerCamera::Update(Camera *camera, Terrain *terrain, Lava *lava, float pl
         }
         else camera->Lambda = newLambda;
 
+
         camera->Distance = MAX_DISTANCE*camera->Lambda*0.85;
 
         camera->SetPos(player_x - camera->Distance*camera->Front.x,player_y - camera->Distance*camera->Front.y,player_z - camera->Distance*camera->Front.z);
-    }
+    //}
 
     //glMatrixMode(GL_MODELVIEW);
     //glLoadIdentity();

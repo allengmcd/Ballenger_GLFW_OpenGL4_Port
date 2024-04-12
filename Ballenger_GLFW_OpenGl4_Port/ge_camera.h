@@ -46,7 +46,7 @@ public:
     glm::vec3 Right;
     glm::vec3 WorldUp;
     // euler Angles
-    float Yaw;
+    float Yaw, LastYaw;
     float Pitch;
     // camera options
     float MovementSpeed;
@@ -143,7 +143,7 @@ public:
 
 	float GetDistance()
 	{
-		return distance;
+		return Distance;
 	}
 
 	void SetState(int s)
@@ -154,7 +154,54 @@ public:
 	{
 		return state;
 	}
-	
+    
+    void RotateYaw(float angle)
+    {
+        Yaw += angle;
+
+        Refresh();
+    }
+    void SetYaw(float angle)
+    {
+        Yaw = angle;
+    }
+    float GetYaw()
+    {
+        return Yaw;
+    }
+
+    void SetLastYaw(float angle)
+    {
+        LastYaw = angle;
+    }
+    float GetLastYaw()
+    {
+        return LastYaw;
+    }
+
+    void RotatePitch(float angle)
+    {
+        const float limit = 89.0 * PI / 180.0;
+
+        Pitch += angle;
+
+        if(Pitch < -limit)
+            Pitch = -limit;
+
+        if(Pitch > limit)
+            Pitch = limit;
+
+        Refresh();
+    }
+    void SetPitch(float angle)
+    {
+        Pitch = angle;
+    }
+    float GetPitch()
+    {
+        return Pitch;
+    }
+        
 
     void Refresh()
     {
@@ -187,7 +234,6 @@ public:
 
 private:
 	int state;
-	float distance;
 
     // calculates the front vector from the Camera's (updated) Euler Angles
     void updateCameraVectors()

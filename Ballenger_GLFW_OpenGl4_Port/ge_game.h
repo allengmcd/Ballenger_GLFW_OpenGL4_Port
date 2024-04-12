@@ -28,6 +28,14 @@ enum{
 
 #define TOTAL_LEVELS	  1
 
+
+
+#define CAMERA_ZFAR   (TERRAIN_SIZE/sin(PI/4))
+#define CAMERA_ZNEAR  0.01f
+#define CAMERA_MAX_DISTANCE   10.0f
+#define CAMERA_SPEED  (PI/180*0.1)
+#define CAMERA_SMOOTHING_SPEED  0.01f
+
 //controls
 #define P_UP		'w'
 #define P_DOWN		's'
@@ -62,6 +70,7 @@ public:
 	void ReadMouseMotion(int x, int y);
 	//Process
 	bool Process();
+	void Physics(Bicho &object);
 	//Output
 	void Reshape(int w, int h);
 	void Render();
