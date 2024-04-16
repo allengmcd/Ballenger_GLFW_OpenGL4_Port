@@ -603,7 +603,7 @@ void Game::Render()
 			target_keys[i].DrawLevitating(camera,&shader,&model,&data, key_color, i);
 		}
 
-		glColor4f(1,1,1,1);
+		//glColor4f(1,1,1,1);
 	}
 	
 

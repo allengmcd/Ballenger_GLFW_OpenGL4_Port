@@ -1,5 +1,0 @@
-/home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/out/build/linux-debug/CMakeFiles/edit_cache.dir
-/home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/out/build/linux-debug/CMakeFiles/rebuild_cache.dir
-/home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/out/build/linux-debug/Ballenger_GLFW_OpenGl4_Port/CMakeFiles/Ballenger_GLFW_OpenGl4_Port.dir
-/home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/out/build/linux-debug/Ballenger_GLFW_OpenGl4_Port/CMakeFiles/edit_cache.dir
-/home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/out/build/linux-debug/Ballenger_GLFW_OpenGl4_Port/CMakeFiles/rebuild_cache.dir
