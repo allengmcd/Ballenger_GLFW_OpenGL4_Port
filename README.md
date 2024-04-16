@@ -7,7 +7,7 @@ Original Autuhor: Jonathan Gonzalez Cortes
 
 Porting Author: Allen Gene McDermott
 
-This is an opengl 4.6 Linux port for Ballenger (https://www.youtube.com/watch?v=aviL3HX3UEc)
+This is an opengl 4.6 Linux port for Ballenger (https://www.youtube.com/watch?v=aviL3HX3UEc), still in progress.
 
 Original Source Code: https://www.dropbox.com/s/cp244x2540zr32d/Ballenger_Demo.zip?dl=0
 
@@ -32,6 +32,12 @@ Noclip keys:
 - Enable noclip mode: 	F10
 - Fly up: 		left mouse button
 - Fly down: 		right mouse button
+
+Building
+---------------------
+I will write a more detailed guide to building the project later.
+
+I used cmake with visual studio code. You will also need to make sure you have OpenGL 4.6, glad, glm, and glfw. You may need to regenerate glad.c on your own computer if you are getting lots of errors. Other then that just configure cmake in vs code and build then debug. 
 
 Copyright and Licence
 ---------------------
