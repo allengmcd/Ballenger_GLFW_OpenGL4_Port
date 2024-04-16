@@ -9,6 +9,8 @@ Porting Author: Allen Gene McDermott
 
 This is an opengl 4.6 Linux port for Ballenger (https://www.youtube.com/watch?v=aviL3HX3UEc)
 
+Original Source Code: https://www.dropbox.com/s/cp244x2540zr32d/Ballenger_Demo.zip?dl=0
+
 I rewrote almost all the opengl calls and removed the glut calls.
 
 Most of the game logic remains untouched (such as the collision and physics code).
