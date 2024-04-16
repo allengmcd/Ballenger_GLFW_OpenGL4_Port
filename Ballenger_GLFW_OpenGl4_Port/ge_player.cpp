@@ -29,9 +29,9 @@ void Player::Load()
 		{
 			float xSegment = (float)x / (float)X_SEGMENTS;
 			float ySegment = (float)y / (float)Y_SEGMENTS;
-			float xPos = std::cos(xSegment * 2.0f * PI) * std::sin(ySegment * PI);
-			float yPos = std::cos(ySegment * PI);
-			float zPos = std::sin(xSegment * 2.0f * PI) * std::sin(ySegment * PI);
+			float xPos = std::cos(xSegment * 2.0f * PI) * std::sin(ySegment * PI)/2;
+			float yPos = std::cos(ySegment * PI)/2;
+			float zPos = std::sin(xSegment * 2.0f * PI) * std::sin(ySegment * PI)/2;
 
 			positions.push_back(glm::vec3(xPos, yPos, zPos));
 			uv.push_back(glm::vec2(xSegment, ySegment));
@@ -106,6 +106,7 @@ void Player::Draw(Data *data, Camera *camera, Lava *lava, Shader *shader)
 	char posy_name[] = "posy\0";
 
 	char texture1[] = "texture1\0";
+	char texture2[] = "texture2\0";
 
 	glm::mat4 model = glm::mat4(1.0f);
 	glm::mat4 view =  camera->GetViewMatrix(); // remove translation from the view matrix
@@ -113,8 +114,15 @@ void Player::Draw(Data *data, Camera *camera, Lava *lava, Shader *shader)
 
 
     model = glm::translate(model, glm::vec3(GetX(), GetY(), GetZ()));
+	model = glm::rotate(model, -GetPitch()/100, glm::vec3(-cos(GetYaw()*(PI/180))/100,0.0,sin(GetYaw()*(PI/180))/100));
 
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_PLAYER));
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_PLAYER_NMAP));
 	shader->Activate(PROGRAM_PLAYER);
+	shader->setInt(texture1, 0);
+	shader->setInt(texture2, 0);
 	shader->setMat4("model", model);
 	shader->setMat4("view", view);
 	shader->setMat4("projection", projection);

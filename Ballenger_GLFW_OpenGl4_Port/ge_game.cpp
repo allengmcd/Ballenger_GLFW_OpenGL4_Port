@@ -247,78 +247,78 @@ bool Game::Process()
 		float initial_z = player.GetZ();
 		Physics(player);
 
-		// //comprueba si el player muere
-		// if(player->GetY() <= Lava.GetHeight()+RADIUS)
-		// {
-		// 	player->SetY(Lava.GetHeight()+RADIUS);
-		// 	player->SetVel(0.0f,0.0f,0.0f);
-		// 	pickedkey_id = -1;
-		// 	state = STATE_LIVELOSS;
-		// 	Sound.Play(SOUND_SWISH);
-		// }
+		//comprueba si el player muere
+		if(player.GetY() <= lava.GetHeight()+RADIUS)
+		{
+			player.SetY(lava.GetHeight()+RADIUS);
+			player.SetVel(0.0f,0.0f,0.0f);
+			pickedkey_id = -1;
+			state = STATE_LIVELOSS;
+			//Sound.Play(SOUND_SWISH);
+		}
 
-		// Coord P; P.x = player->GetX(); P.y = player->GetY(); P.z = player->GetZ();
-		// float r = RADIUS;
+		Coord P; P.x = player.GetX(); P.y = player.GetY(); P.z = player.GetZ();
+		float r = RADIUS;
 
-		// //comprueba si el player entra en algun Respawn Point
-		// float cr = CIRCLE_RADIUS,ah = AURA_HEIGHT;
-		// for(unsigned int i=0; i<respawn_points.size(); i++)
-		// {
-		// 	Coord RP; RP.x = respawn_points[i].GetX(); RP.y = respawn_points[i].GetY(); RP.z = respawn_points[i].GetZ(); 
-		// 	if( sqrt((P.x-RP.x)*(P.x-RP.x) + (P.y-RP.y)*(P.y-RP.y) + (P.z-RP.z)*(P.z-RP.z)) <= RADIUS+CIRCLE_RADIUS)
-		// 	{
-		// 		if(respawn_id != i) Sound.Play(SOUND_SWISH);
-		// 		respawn_id = i;
-		// 	}
-		// }
+		//comprueba si el player entra en algun Respawn Point
+		float cr = CIRCLE_RADIUS,ah = AURA_HEIGHT;
+		for(unsigned int i=0; i<respawn_points.size(); i++)
+		{
+			Coord RP; RP.x = respawn_points[i].GetX(); RP.y = respawn_points[i].GetY(); RP.z = respawn_points[i].GetZ(); 
+			if( sqrt((P.x-RP.x)*(P.x-RP.x) + (P.y-RP.y)*(P.y-RP.y) + (P.z-RP.z)*(P.z-RP.z)) <= RADIUS+CIRCLE_RADIUS)
+			{
+				//if(respawn_id != i) Sound.Play(SOUND_SWISH);
+				respawn_id = i;
+			}
+		}
 
-		// //comprueba si el player recoge alguna llave
-		// if(pickedkey_id == -1)
-		// {
-		// 	for(unsigned int i=0; i<target_keys.size(); i++)
-		// 	{
-		// 		if(!target_keys[i].IsDeployed())
-		// 		{
-		// 			Coord K; K.x = target_keys[i].GetX(); K.y = target_keys[i].GetY(); K.z = target_keys[i].GetZ(); 
-		// 			if( sqrt((P.x-K.x)*(P.x-K.x) + (P.y-K.y)*(P.y-K.y) + (P.z-K.z)*(P.z-K.z)) <= RADIUS*2)
-		// 			{
-		// 				pickedkey_id = i;
-		// 				Sound.Play(SOUND_PICKUP);
-		// 			}
-		// 		}
-		// 	}
-		// }
+		//comprueba si el player recoge alguna llave
+		if(pickedkey_id == -1)
+		{
+			for(unsigned int i=0; i<target_keys.size(); i++)
+			{
+				if(!target_keys[i].IsDeployed())
+				{
+					Coord K; K.x = target_keys[i].GetX(); K.y = target_keys[i].GetY(); K.z = target_keys[i].GetZ(); 
+					if( sqrt((P.x-K.x)*(P.x-K.x) + (P.y-K.y)*(P.y-K.y) + (P.z-K.z)*(P.z-K.z)) <= RADIUS*2)
+					{
+						pickedkey_id = i;
+						//Sound.Play(SOUND_PICKUP);
+					}
+				}
+			}
+		}
 
-		// //comprueba si el player llega con una llave a su respectiva columna
-		// if(pickedkey_id != -1)
-		// {
-		// 	if( columns[pickedkey_id].InsideGatheringArea(P.x,P.y,P.z) )
-		// 	{
-		// 		Sound.Play(SOUND_UNLOCK);
-		// 		Sound.Play(SOUND_ENERGYFLOW);
-		// 		target_keys[pickedkey_id].Deploy();
-		// 		pickedkey_id = -1;
-		// 		if(respawn_id)
-		// 		{
-		// 			Sound.Play(SOUND_SWISH);
-		// 			respawn_id = 0;
-		// 		}
-		// 		bool all_keys_deployed = true;
-		// 		for(unsigned int i=0; all_keys_deployed && i<target_keys.size(); i++) all_keys_deployed = target_keys[i].IsDeployed();
-		// 		portal_activated = all_keys_deployed;
-		// 		if(portal_activated) Sound.Play(SOUND_WARP);
-		// 	}
-		// }
+		//comprueba si el player llega con una llave a su respectiva columna
+		if(pickedkey_id != -1)
+		{
+			if( columns[pickedkey_id].InsideGatheringArea(P.x,P.y,P.z) )
+			{
+				//Sound.Play(SOUND_UNLOCK);
+				//Sound.Play(SOUND_ENERGYFLOW);
+				target_keys[pickedkey_id].Deploy();
+				pickedkey_id = -1;
+				if(respawn_id)
+				{
+					//Sound.Play(SOUND_SWISH);
+					respawn_id = 0;
+				}
+				bool all_keys_deployed = true;
+				for(unsigned int i=0; all_keys_deployed && i<target_keys.size(); i++) all_keys_deployed = target_keys[i].IsDeployed();
+				portal_activated = all_keys_deployed;
+				//if(portal_activated) Sound.Play(SOUND_WARP);
+			}
+		}
 
-		// //comprueba si el player atraviesa el portal estando activado
-		// if(portal_activated)
-		// {
-		// 	if( Portal.InsidePortal(P.x,P.y,P.z,RADIUS) )
-		// 	{
-		// 		if( (initial_z-portal.GetZ() <= 0.0f && player->GetZ()-portal.GetZ() >= 0.0f) || 
-		// 		    (initial_z-portal.GetZ() >= 0.0f && player->GetZ()-portal.GetZ() <= 0.0f)  ) state = STATE_ENDGAME;
-		// 	}
-		// }
+		//comprueba si el player atraviesa el portal estando activado
+		if(portal_activated)
+		{
+			if( portal.InsidePortal(P.x,P.y,P.z,RADIUS) )
+			{
+				if( (initial_z-portal.GetZ() <= 0.0f && player.GetZ()-portal.GetZ() >= 0.0f) || 
+				    (initial_z-portal.GetZ() >= 0.0f && player.GetZ()-portal.GetZ() <= 0.0f)  ) state = STATE_ENDGAME;
+			}
+		}
 	}
 
 	// //limpio buffer de sonidos
