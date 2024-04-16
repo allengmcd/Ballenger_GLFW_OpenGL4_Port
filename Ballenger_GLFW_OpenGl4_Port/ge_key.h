@@ -15,7 +15,7 @@ public:
 	Key();
 	~Key();
 	void  DrawLevitating(Camera *camera, Shader *Shader, Model *Model, Data *Data, glm::vec4 color, float dist);
-	void  DrawPicked(float playerx,float playery, float playerz, float camera_yaw, Model *Model, Data *Data, Shader *Shader);
+	void  DrawPicked(float playerx,float playery, float playerz, float camera_yaw, Camera *camera, Shader *shader, Model *key_model, Data *data, glm::vec4 color);
 	void  DrawDeployed(float holex,float holey, float holez, float yaw, Model *Model, Data *Data, Shader *Shader);
 	void  SetPos(float posx, float posy, float posz);
 	float GetX();
