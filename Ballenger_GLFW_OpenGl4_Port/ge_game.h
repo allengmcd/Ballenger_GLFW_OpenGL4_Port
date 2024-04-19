@@ -59,6 +59,14 @@ public:
     unsigned int skyboxVAO, skyboxVBO;
 	unsigned int cubemapTexture;
 	
+	unsigned char keys[256];
+	bool mouse_left_down,mouse_right_down;
+	int level,state,pickedkey_id;
+	unsigned int respawn_id;
+	bool noclip,portal_activated;
+	bool debug_camera_active;
+	float time,ang, noclipSpeedF;
+	
 	bool Init(int lvl, GLFWwindow *window);
 	bool Loop();
 	void Finalize();
@@ -77,13 +85,6 @@ public:
 	void ToggleCamera(bool debug_camera_active);
 
 private:
-	unsigned char keys[256];
-	bool mouse_left_down,mouse_right_down;
-	int level,state,pickedkey_id;
-	unsigned int respawn_id;
-	bool noclip,portal_activated;
-	bool debug_camera_active;
-	float time,ang, noclipSpeedF;
 	std::vector<RespawnPoint> respawn_points;
 	std::vector<Key> target_keys;
 	std::vector<Column> columns;

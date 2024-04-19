@@ -17,6 +17,7 @@ float lastFrame = 0.0f;
 float lastX = (float)SCR_WIDTH / 2.0;
 float lastY = (float)SCR_HEIGHT / 2.0;
 bool firstMouse = true;
+bool noClipPressed = false;
 
 Game game;
 
@@ -189,6 +190,19 @@ void processInput(GLFWwindow *window)
         game.camera->MovementSpeed_Handler(SHIFT_PRESSED, deltaTime);
     if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
         game.camera->MovementSpeed_Handler(SHIFT_RELEASED, deltaTime);
+
+    if(glfwGetKey(window, GLFW_KEY_F10) == GLFW_PRESS)
+    {
+        if(!noClipPressed)
+        {
+            game.noclip = !game.noclip;
+            noClipPressed = true;
+        }
+    }
+    if(glfwGetKey(window, GLFW_KEY_F10) == GLFW_RELEASE)
+    {
+        noClipPressed = false;
+    }
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes

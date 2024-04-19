@@ -14,6 +14,14 @@ Game::~Game(void){}
 bool Game::Init(int lvl, GLFWwindow *newWindow)
 {
 	window = newWindow;
+	bool res = true;
+	noclip = false;
+	portal_activated = false;
+	time = ang = 0.0f;
+	noclipSpeedF = 1.0f; 
+	level = lvl;
+	state = STATE_RUN;
+	respawn_id = 0;
 	pickedkey_id = -1;
 	state = STATE_RUN;
 
@@ -571,7 +579,7 @@ void Game::Render()
 		if(i==pickedkey_id) target_keys[i].DrawPicked(player.GetX(),player.GetY(),player.GetZ(),camera->GetYaw(),camera,&shader,&model,&data,key_color);
 		else if(target_keys[i].IsDeployed())
 		{
-			target_keys[i].DrawDeployed(columns[i].GetHoleX(),columns[i].GetHoleY(),columns[i].GetHoleZ(),columns[i].GetYaw(),&model,&data,&shader);
+			target_keys[i].DrawDeployed(columns[i].GetHoleX(),columns[i].GetHoleY(),columns[i].GetHoleZ(),columns[i].GetYaw(),camera,&model,&data,&shader,key_color);
 			
 			// //ray color
 			// if(i==0) glColor4f(1.0f,0.0f,0.0f,0.4f); //rojo

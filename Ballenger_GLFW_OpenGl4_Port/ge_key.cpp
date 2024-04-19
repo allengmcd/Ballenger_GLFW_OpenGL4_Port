@@ -100,7 +100,7 @@ void Key::DrawPicked(float playerx,float playery, float playerz, float camera_ya
 	key_model->Draw(MODEL_KEY);
 }
 
-void Key::DrawDeployed(float holex,float holey,float holez, float yaw, Model *Model, Data *Data, Shader *Shader)
+void Key::DrawDeployed(float holex,float holey,float holez, float yaw, Camera *camera, Model *key_model, Data *data, Shader *shader, glm::vec4 color)
 {
 	// char colorMap_name[] = "colorMap\0";
 	// char normalMap_name[] = "normalMap\0";
@@ -131,6 +131,35 @@ void Key::DrawDeployed(float holex,float holey,float holez, float yaw, Model *Mo
 	// Shader->Deactivate();
 	
 	// glPopMatrix();
+
+		char texture1[] = "texture1\0";
+	char texture2[] = "texture2\0";
+
+	ang = fmod(ang+LEVITATION_SPEED/20,360);
+
+	glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4 view =  camera->GetViewMatrix(); // remove translation from the view matrix
+	glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)camera->SCR_WIDTH/(float)camera->SCR_HEIGHT, 0.1f, 1000.0f);
+
+   	model = glm::translate(model, glm::vec3(holex,holey,holez));
+	model = glm::rotate(model, yaw, glm::vec3(0,1,0));
+	model = glm::rotate(model, 180.0f+45.0f, glm::vec3(1,0,0));
+   	model = glm::translate(model, glm::vec3(0,-0.69,0));
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_KEY));
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_KEY_NMAP));
+	shader->Activate(PROGRAM_KEY);
+	shader->setInt(texture1, 0);
+	shader->setInt(texture2, 0);
+	shader->setVec4("ourColor", color);
+	shader->setMat4("model", model);
+	shader->setMat4("view", view);
+	shader->setMat4("projection", projection);
+
+
+	key_model->Draw(MODEL_KEY);
 }
 
 void Key::SetPos(float posx, float posy, float posz)
