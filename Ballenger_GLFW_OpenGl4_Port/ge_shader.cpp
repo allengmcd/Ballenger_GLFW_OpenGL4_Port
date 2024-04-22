@@ -44,6 +44,8 @@ void Shader::Load()
 	char player_frag[] = "../../../../Shaders/player.frag\0";
 	char key_vert[] = "../../../../Shaders/key.vert\0";
 	char key_frag[] = "../../../../Shaders/key.frag\0";
+	char respawnPoint_vert[] = "../../../../Shaders/respawnPoint.vert\0";
+	char respawnPoint_frag[] = "../../../../Shaders/respawnPoint.frag\0";
 	//char textured[] = "Shaders/textured.frag\0";
 	
 	int success;
@@ -309,6 +311,38 @@ void Shader::Load()
 	if (!success) {
         glGetProgramInfoLog(shader, 512, NULL, infoLog);
 		std::cout << "PROGRAM_KEY" << std::endl;
+        std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+    }
+
+	programs[PROGRAM_RESPAWNPOINT] = glCreateProgram();
+		shader = glCreateShader(GL_VERTEX_SHADER);
+		load_shader(shader,respawnPoint_vert);
+		glCompileShader(shader);
+		glAttachShader(programs[PROGRAM_RESPAWNPOINT], shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << "PROGRAM_RESPAWNPOINT" << std::endl;
+			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+
+		shader = glCreateShader(GL_FRAGMENT_SHADER);
+		load_shader(shader,respawnPoint_frag);
+		glCompileShader(shader);
+		glAttachShader(programs[PROGRAM_RESPAWNPOINT], shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << "PROGRAM_RESPAWNPOINT" << std::endl;
+			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+		glLinkProgram(programs[PROGRAM_RESPAWNPOINT]);
+	glGetProgramiv(shader, GL_LINK_STATUS, &success);
+	if (!success) {
+        glGetProgramInfoLog(shader, 512, NULL, infoLog);
+		std::cout << "PROGRAM_RESPAWNPOINT" << std::endl;
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
     }
 	

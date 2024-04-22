@@ -136,95 +136,87 @@ bool MatrixInverse(GLfloat m[16], GLfloat invOut[16])
 }
 */
 
+void RespawnPoint::Load()
+{
+    respawnBuffer[0] = 0.0f;
+    respawnBuffer[1] = 1.0f;
+    respawnBuffer[2] = CIRCLE_RADIUS;
+    respawnBuffer[3] = 0.0f;
+    respawnBuffer[4] = -CIRCLE_RADIUS;
+
+    respawnBuffer[5] = 1.0f;
+    respawnBuffer[6] = 1.0f;
+    respawnBuffer[7] = -CIRCLE_RADIUS;
+    respawnBuffer[8] = 0.0f;
+    respawnBuffer[9] = -CIRCLE_RADIUS;
+
+    respawnBuffer[10] = 1.0f;
+    respawnBuffer[11] = 0.0f;
+    respawnBuffer[12] = -CIRCLE_RADIUS;
+    respawnBuffer[13] = 0.0f;
+    respawnBuffer[14] = CIRCLE_RADIUS;
+
+    respawnBuffer[15] = 0.0f;
+    respawnBuffer[16] = 0.0f;
+    respawnBuffer[17] = CIRCLE_RADIUS;
+    respawnBuffer[18] = 0.0f;
+    respawnBuffer[19] = CIRCLE_RADIUS;
+
+
+
+    respawnIndices[0] = 0;
+    respawnIndices[1] = 1;
+    respawnIndices[2] = 3;
+    respawnIndices[3] = 1;
+    respawnIndices[4] = 2;
+    respawnIndices[5] = 3;
+
+
+    glGenVertexArrays(1, &respawnVAO);
+    glGenBuffers(1, &respawnVBO);
+    glGenBuffers(1, &respawnEBO);
+
+    glBindVertexArray(respawnVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, respawnVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(respawnBuffer), respawnBuffer, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, respawnEBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(respawnIndices), respawnIndices, GL_STATIC_DRAW);
+
+    // texture attribute
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // position attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(2 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+}
+
 void RespawnPoint::Draw(int tex_id, bool activated, Shader *shader, Camera *camera)
 {
-    // char texture1[] = "texture1\0";
-	// char texture2[] = "texture2\0";
+	char texture1_name[] = "texture1\0";
 
-	// //ang = fmod(ang+LEVITATION_SPEED/20,360);
-
-    // glm::vec4 color = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
-    // if(id==0) color = glm::vec4(1.0f,0.0f,0.0f,1.0f); //rojo
-	// if(id==1) color = glm::vec4(1.0f,1.0f,0.0f,1.0f); //amarillo
-	// if(id==2) color = glm::vec4(0.0f,1.0f,0.0f,1.0f); //verde
-	// if(id==3) color = glm::vec4(0.1f,0.1f,1.0f,1.0f); //azul
-	// if(id==4) color = glm::vec4(1.0f,0.0f,1.0f,1.0f); //violeta
-
-	// glm::mat4 model = glm::mat4(1.0f);
-	// glm::mat4 view =  camera->GetViewMatrix(); // remove translation from the view matrix
-	// glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)camera->SCR_WIDTH/(float)camera->SCR_HEIGHT, 0.1f, 1000.0f);
-
-   	// model = glm::translate(model, glm::vec3(x,y+HEIGHT_OFFSET,z));
-   	// model = glm::translate(model, glm::vec3(0,0,HEIGHT_OFFSET));
-	// model = glm::rotate(model, yaw, glm::vec3(0.0f,1.0f,0.0f));
-
-	// glActiveTexture(GL_TEXTURE0);
-	// glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_KEY));
-	// glActiveTexture(GL_TEXTURE1);
-	// glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_KEY_NMAP));
-	// shader->Activate(PROGRAM_KEY);
-	// shader->setInt(texture1, 0);
-	// shader->setInt(texture2, 0);
-	// shader->setVec4("ourColor", color);
-	// shader->setMat4("model", model);
-	// shader->setMat4("view", view);
-	// shader->setMat4("projection", projection);
-
-
-	// column_model->Draw(MODEL_COLUMN);
-
-
-
-	// //GLfloat ViewMatrix[16];
-	// //glGetFloatv(GL_MODELVIEW_MATRIX, ViewMatrix); //las ultimas transformaciones fueron las de gluLookAt
+    glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4 view =  camera->GetViewMatrix(); // remove translation from the view matrix
+	glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)camera->SCR_WIDTH/(float)camera->SCR_HEIGHT, 0.1f, 1000.0f);
 	
-	// glPushMatrix();
+    model = glm::translate(model, glm::vec3(x,y+HEIGHT_OFFSET,z));
 
-	// glDisable(GL_LIGHTING);
-	// glEnable(GL_BLEND);
-	// glTranslatef(x,y+HEIGHT_OFFSET,z);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex_id);
 
-	// //circle
-	// glEnable(GL_TEXTURE_2D);
-	// glBindTexture(GL_TEXTURE_2D,tex_id);
+    shader->Activate(PROGRAM_RESPAWNPOINT);
+    shader->setInt(texture1_name, 0);
+    shader->setMat4("model", model);
+    shader->setMat4("view", view);
+    shader->setMat4("projection", projection);
 
-	// glBegin(GL_QUADS);
-	// 	glTexCoord2f(0.0f, 1.0f); glVertex3f( CIRCLE_RADIUS, 0,-CIRCLE_RADIUS);
-	// 	glTexCoord2f(1.0f, 1.0f); glVertex3f(-CIRCLE_RADIUS, 0,-CIRCLE_RADIUS);
-	// 	glTexCoord2f(1.0f, 0.0f); glVertex3f(-CIRCLE_RADIUS, 0, CIRCLE_RADIUS);
-	// 	glTexCoord2f(0.0f, 0.0f); glVertex3f( CIRCLE_RADIUS, 0, CIRCLE_RADIUS);
-	// glEnd();
 
-	// glDisable(GL_TEXTURE_2D);
+    glBindVertexArray(respawnVAO);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    // glDrawArrays(GL_QUADS, 0, 4);
 
-	// //f.circle
-	
-	// //aura
-	// glDepthMask(GL_FALSE); //desactivo la escritura en el zbuffer (me aprovecho del algoritmo del pintor para que todos los triangulos se pinten en el orden que le toca [ssi estan a la vista])
-	// glDisable(GL_CULL_FACE);
-	// GLUquadricObj *q = gluNewQuadric();
-	// glRotatef(-90.0f,1.0f,0.0f,0.0f);
-	// if(activated) glColor4f(1.0f,0.4f,0.0f,0.6f);
-	// else glColor4f(0.5f,0.5f,1.0f,0.6f);
-
-	// shader->Activate(PROGRAM_SIMPLE_LIGHTBEAM);
-	// shader->SetUniform("hmax", AURA_HEIGHT);
-	// gluCylinder(q,CIRCLE_RADIUS,CIRCLE_RADIUS,AURA_HEIGHT,16,16);
-	// shader->Deactivate();
-
-	// glTranslatef(0,0,HEIGHT_OFFSET);
-	// gluDisk(q,0,CIRCLE_RADIUS,16,16);
-
-	// glColor4f(1,1,1,1);
-	// gluDeleteQuadric(q);
-	// glEnable(GL_CULL_FACE);
-	// glDepthMask(GL_TRUE);
-	// //f.aura
-
-	// glDisable(GL_BLEND);
-	// glEnable(GL_LIGHTING);
-
-	// glPopMatrix();
+    glBindVertexArray(0);
 }
 
 void RespawnPoint::SetPos(float posx, float posy, float posz)

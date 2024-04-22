@@ -3,7 +3,7 @@ Ballenger
 
 About
 -----
-Original Autuhor: Jonathan Gonzalez Cortes
+Original Author: Jonathan Gonzalez Cortes
 
 Porting Author: Allen Gene McDermott
 

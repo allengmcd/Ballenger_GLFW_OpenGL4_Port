@@ -3,3 +3,4 @@ src/out.txt
 CMakeFiles/*
 Ballenger_GLFW_OpenGl4_Port/CMakeFiles/*
 Ballenger_GLFW_OpenGl4_Port/out/*
+out/*
