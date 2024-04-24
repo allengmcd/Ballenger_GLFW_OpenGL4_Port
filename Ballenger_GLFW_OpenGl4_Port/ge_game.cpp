@@ -81,20 +81,20 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	rp.Load();
 	rp.SetPos(TERRAIN_SIZE/2,terrain.GetHeight(TERRAIN_SIZE/2,TERRAIN_SIZE/2),TERRAIN_SIZE/2);
 	respawn_points.push_back(rp);
-	// rp.SetPos(256,terrain.GetHeight(256,160),160);
-	// respawn_points.push_back(rp);
-	// rp.SetPos(840,terrain.GetHeight(840,184),184);
-	// respawn_points.push_back(rp);
-	// rp.SetPos(552,terrain.GetHeight(552,760),760);
-	// respawn_points.push_back(rp);
-	// rp.SetPos(791,terrain.GetHeight(791,850),850);
-	// respawn_points.push_back(rp);
-	// rp.SetPos(152,terrain.GetHeight(152,832),832);
-	// respawn_points.push_back(rp);
-	// rp.SetPos(448,terrain.GetHeight(448,944),944);
-	// respawn_points.push_back(rp);
-	// rp.SetPos(816,terrain.GetHeight(816,816),816);
-	// respawn_points.push_back(rp);
+	rp.SetPos(256,terrain.GetHeight(256,160),160);
+	respawn_points.push_back(rp);
+	rp.SetPos(840,terrain.GetHeight(840,184),184);
+	respawn_points.push_back(rp);
+	rp.SetPos(552,terrain.GetHeight(552,760),760);
+	respawn_points.push_back(rp);
+	rp.SetPos(791,terrain.GetHeight(791,850),850);
+	respawn_points.push_back(rp);
+	rp.SetPos(152,terrain.GetHeight(152,832),832);
+	respawn_points.push_back(rp);
+	rp.SetPos(448,terrain.GetHeight(448,944),944);
+	respawn_points.push_back(rp);
+	rp.SetPos(816,terrain.GetHeight(816,816),816);
+	respawn_points.push_back(rp);
 
 	//Portal initialization
 	portal.SetPos(TERRAIN_SIZE/2,terrain.GetHeight(TERRAIN_SIZE/2,TERRAIN_SIZE/2+32),TERRAIN_SIZE/2+32);
@@ -490,7 +490,7 @@ void Game::Render()
 {
 	// render
 	// ------
-	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+	//glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	if(state != STATE_LIVELOSS) lava.Update();

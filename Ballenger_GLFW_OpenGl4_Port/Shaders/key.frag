@@ -10,5 +10,5 @@ uniform vec4 color_dye;
 
 void main()
 {
-	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);// * color_dye;
+	//FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);// * color_dye;
 }

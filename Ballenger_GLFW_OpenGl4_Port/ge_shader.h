@@ -4,7 +4,7 @@
 
 
 //Program array size
-#define NUM_PROGRAMS 8
+#define NUM_PROGRAMS 9
 
 //Program identifiers
 enum {
