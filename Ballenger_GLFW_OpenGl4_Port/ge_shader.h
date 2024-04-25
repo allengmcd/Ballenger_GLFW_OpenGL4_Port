@@ -4,7 +4,7 @@
 
 
 //Program array size
-#define NUM_PROGRAMS 9
+#define NUM_PROGRAMS 10
 
 //Program identifiers
 enum {
@@ -16,7 +16,8 @@ enum {
 	PROGRAM_SKYBOX,
     PROGRAM_PLAYER,
     PROGRAM_KEY,
-    PROGRAM_RESPAWNPOINT
+    PROGRAM_RESPAWNPOINT,
+    PROGRAM_ENERGYBEACON
 };
 
 class Shader

@@ -46,6 +46,8 @@ void Shader::Load()
 	char key_frag[] = "../../../../Shaders/key.frag\0";
 	char respawnPoint_vert[] = "../../../../Shaders/respawnPoint.vert\0";
 	char respawnPoint_frag[] = "../../../../Shaders/respawnPoint.frag\0";
+	char energyBeacon_vert[] = "../../../../Shaders/energyBeacon.vert\0";
+	char energyBeacon_frag[] = "../../../../Shaders/energyBeacon.frag\0";
 	//char textured[] = "Shaders/textured.frag\0";
 	
 	int success;
@@ -343,6 +345,38 @@ void Shader::Load()
 	if (!success) {
         glGetProgramInfoLog(shader, 512, NULL, infoLog);
 		std::cout << "PROGRAM_RESPAWNPOINT" << std::endl;
+        std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+    }
+
+	programs[PROGRAM_ENERGYBEACON] = glCreateProgram();
+		shader = glCreateShader(GL_VERTEX_SHADER);
+		load_shader(shader,energyBeacon_vert);
+		glCompileShader(shader);
+		glAttachShader(programs[PROGRAM_ENERGYBEACON], shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << "PROGRAM_ENERGYBEACON" << std::endl;
+			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+
+		shader = glCreateShader(GL_FRAGMENT_SHADER);
+		load_shader(shader,energyBeacon_frag);
+		glCompileShader(shader);
+		glAttachShader(programs[PROGRAM_ENERGYBEACON], shader);
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << "PROGRAM_ENERGYBEACON" << std::endl;
+			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+		glLinkProgram(programs[PROGRAM_ENERGYBEACON]);
+	glGetProgramiv(shader, GL_LINK_STATUS, &success);
+	if (!success) {
+        glGetProgramInfoLog(shader, 512, NULL, infoLog);
+		std::cout << "PROGRAM_ENERGYBEACON" << std::endl;
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
     }
 	

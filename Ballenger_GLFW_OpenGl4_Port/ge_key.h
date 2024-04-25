@@ -4,6 +4,7 @@
 #include "ge_shader.h"
 #include "ge_model.h"
 #include "ge_data.h"
+#include "ge_energyBeacon.h"
 
 #define LEVITATION_SPEED 2.0f
 #define BEACON_MIN_RADIUS 0.75f
@@ -28,4 +29,6 @@ private:
 	float x,y,z; //posicion inicial
 	float ang;
 	bool deployed;
+
+	EnergyBeacon energyBeacon;
 };
