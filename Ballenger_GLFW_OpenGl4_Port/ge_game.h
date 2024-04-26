@@ -98,6 +98,7 @@ private:
 	Player player;
 	GLFWwindow *window;
 	Key key;
+	EnergyBeacon energyBeacon;
 
 	//void Physics(Bicho &object);
 };

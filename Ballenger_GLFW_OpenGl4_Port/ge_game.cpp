@@ -50,7 +50,6 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	test = terrain.GetHeight(780,858);
 	test = terrain.GetHeight(265,487);
 
-
 	// //columns initialization
 	Column col;
 	col.SetColumn(TERRAIN_SIZE/2+18,terrain.GetHeight(TERRAIN_SIZE/2+18,TERRAIN_SIZE/2+8),TERRAIN_SIZE/2+8,   90);
@@ -106,6 +105,15 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	player_camera = new Camera(glm::vec3(0.0f, 10.0f, 3.0f));
 	debug_camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
 	camera = player_camera;
+
+
+	EnergyBeacon *energyBeaconTemp = new EnergyBeacon();
+
+	energyBeaconTemp->Load(16,75, 5000);
+	energyBeaconTemp->SetEnergyBeacon(player.GetX(),player.GetY(),player.GetZ(),0.0f);
+
+	energyBeacon = *energyBeaconTemp;
+	//energyBeacon = energyBeaconTemp;
 
 	//sound.Play(SOUND_AMBIENT); //TODO: this causes segfault
 	//sound.PlayBounce(.25f); //TODO: So does this
@@ -493,18 +501,19 @@ void Game::Render()
 	//glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+
 	if(state != STATE_LIVELOSS) lava.Update();
 	playerCamera.Update(player_camera,&terrain, &lava, player.GetX(), player.GetY(), player.GetZ());
 
 	//skybox.Draw(camera);
-	scene.Draw(&terrain,&shader,camera,&data,&lava);
+	//scene.Draw(&terrain,&shader,camera,&data,&lava);
 
 	
 	//draw player
 	player.Draw(&data,camera,&lava,&shader);
 
-
-
+	energyBeacon.Draw(&data,camera,&shader);
+	
 	
 	Coord P; P.x = player.GetX(); P.y = player.GetY(); P.z = player.GetZ();
 	float r = RADIUS;

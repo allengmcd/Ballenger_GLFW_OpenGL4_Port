@@ -13,7 +13,7 @@ class EnergyBeacon
 public:
 	EnergyBeacon();
 	~EnergyBeacon();
-	void Load(unsigned int sectorCount, unsigned int radius);
+	void Load(unsigned int sectorCount, unsigned int radius, unsigned int height);
 	void Draw(Data *data, Camera *camera,Shader *shader);	
 	float GetX();
 	float GetY();
@@ -30,7 +30,6 @@ private:
 	 // memeber vars
     float baseRadius;
     float topRadius;
-    float height;
     int sectorCount;                        // # of slices
     int stackCount;                         // # of stacks
     unsigned int baseIndex;                 // starting index of base

@@ -59,6 +59,7 @@ int main()
         return -1;
     }
 
+
     game.Init(1, window);
 
     // render loop

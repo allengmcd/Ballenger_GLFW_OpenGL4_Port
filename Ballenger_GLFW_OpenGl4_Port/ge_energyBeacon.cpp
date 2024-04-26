@@ -6,14 +6,8 @@ EnergyBeacon::EnergyBeacon()
 EnergyBeacon::~EnergyBeacon(){}
 
 
-void EnergyBeacon::Load(unsigned int sectorCount, unsigned int radius)
+void EnergyBeacon::Load(unsigned int sectorCount, unsigned int radius, unsigned int height)
 {
-    glGenVertexArrays(1, &beaconVAO);
-
-	unsigned int vbo, ebo;
-	glGenBuffers(1, &vbo);
-	glGenBuffers(1, &ebo);
-
 	// std::vector<glm::vec3> positions;
 	// std::vector<glm::vec2> uv;
 	// std::vector<glm::vec3> normals;
@@ -160,12 +154,54 @@ void EnergyBeacon::Load(unsigned int sectorCount, unsigned int radius)
         }
     }
 
+    // int counter = 0;
+    for(int i = 0; i < data.size(); i+=8)
+    {
+        data[i+2] = i;
+        //std::cout << data[i+0] << " : " << data[i+1] <<  " : " << data[i+2] <<std::endl;
+        // std::cout << data[i+3] << " : " << data[i+4] <<  " : " << data[i+5] <<std::endl;
+        // std::cout << data[i+6] << " : " << data[i+7] <<  std::endl;
+        //std::cout << "" <<  std::endl;
+        //counter++;
+    }
+
+    float vertices2[] = {
+        // positions          // colors           // texture coords
+         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
+    };
+    unsigned int indices2[] = {  
+        0, 1, 2, 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 6, 6, 7, 8, 7, 8, 9, 8, 9, 10, 9, 10, 11, 10, 11, 12, 11, 12, 13
+    };
+
+    // for(int i = 3; i < 28; i++)
+    // {
+    //     //data[i] = vertices2[i];
+    //     indices2[i+0] = i-2;
+    //     indices2[i+1] = i-1;
+    //     indices2[i+2] = i;
+    // }
+    // for(int i = 0; i < 32; i++)
+    // {
+    //     std::cout << indices2[i] << std::endl;
+    // }
+
+
+    indexCount = data.size()/8;
+
+	unsigned int vbo, ebo, vao;
+    glGenVertexArrays(1, &beaconVAO);
+	glGenBuffers(1, &vbo);
+	glGenBuffers(1, &ebo);
 
     glBindVertexArray(beaconVAO);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
+	//glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 32 * sizeof(float), &data[0], GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), &indices2[0], GL_STATIC_DRAW);
 	unsigned int stride = (3 + 2 + 3) * sizeof(float);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
@@ -173,8 +209,12 @@ void EnergyBeacon::Load(unsigned int sectorCount, unsigned int radius)
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, stride, (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, stride, (void*)(6 * sizeof(float)));
+
+    //beaconVAO = vao;
 }
 
+int counter1 = 0;
+int counter2 = 0;
 void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader)
 {
 	glm::mat4 model = glm::mat4(1.0f);
@@ -185,17 +225,26 @@ void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader)
     model = glm::translate(model, glm::vec3(GetX(), GetY(), GetZ()));
 	//model = glm::rotate(model, -GetPitch()/100, glm::vec3(-cos(GetYaw()*(PI/180))/100,0.0,sin(GetYaw()*(PI/180))/100));
 
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_PLAYER));
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_PLAYER_NMAP));
+
 	shader->Activate(PROGRAM_ENERGYBEACON);
 	shader->setMat4("model", model);
 	shader->setMat4("view", view);
 	shader->setMat4("projection", projection);
 
-   	glBindVertexArray(beaconVAO);
-    glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(beaconVAO);
+
+    counter1++;
+    if(counter1 >= 50)
+    {
+        if(counter2 >=20) counter2 = 0;
+        counter2++;
+        counter1 = 0;
+    }
+    glDrawElements(GL_TRIANGLES, counter2, GL_UNSIGNED_INT, 0);
+    //glDrawArrays(GL_TRIANGLE_STRIP, 24, 0);
+   	// glBindVertexArray(beaconVAO);
+    // // glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
+    // glDrawElements(GL_TRIANGLE_STRIP, 21, GL_UNSIGNED_INT, 0);
 
 	glBindVertexArray(0);
 }
