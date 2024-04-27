@@ -13,7 +13,7 @@ class EnergyBeacon
 public:
 	EnergyBeacon();
 	~EnergyBeacon();
-	void Load(unsigned int sectorCount, unsigned int radius, unsigned int height);
+	void Load(unsigned int sectorCount, float radius, float height);
 	void Draw(Data *data, Camera *camera,Shader *shader);	
 	float GetX();
 	float GetY();
@@ -38,6 +38,8 @@ private:
     int upAxis;                             // X=1, Y=2, Z=3(default)
 	float x,y,z;
 	float yaw;
+
+	float ang;
 
     std::vector<float> unitCircleVertices;
     // std::vector<unsigned int> indices;

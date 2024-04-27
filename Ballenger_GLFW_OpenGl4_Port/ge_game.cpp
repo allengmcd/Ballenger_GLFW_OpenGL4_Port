@@ -109,7 +109,7 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 
 	EnergyBeacon *energyBeaconTemp = new EnergyBeacon();
 
-	energyBeaconTemp->Load(16,75, 5000);
+	energyBeaconTemp->Load(16,5.0f, 5000000.0f);
 	energyBeaconTemp->SetEnergyBeacon(player.GetX(),player.GetY(),player.GetZ(),0.0f);
 
 	energyBeacon = *energyBeaconTemp;
@@ -506,7 +506,7 @@ void Game::Render()
 	playerCamera.Update(player_camera,&terrain, &lava, player.GetX(), player.GetY(), player.GetZ());
 
 	//skybox.Draw(camera);
-	//scene.Draw(&terrain,&shader,camera,&data,&lava);
+	scene.Draw(&terrain,&shader,camera,&data,&lava);
 
 	
 	//draw player
