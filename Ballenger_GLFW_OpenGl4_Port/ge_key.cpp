@@ -7,11 +7,17 @@ Key::Key()
 	z = 0.0f;
 	ang = 0.0f;
 	deployed = false;
-
-	// energyBeacon.Load(16,16);
-	// energyBeacon.SetEnergyBeacon(x,y,z,0.0f);
 }
 Key::~Key(){}
+
+void Key::Load()
+{
+	EnergyBeacon *energyBeaconTemp = new EnergyBeacon();
+
+	energyBeaconTemp->Load(16,5.0f, 5000000.0f);
+
+	energyBeacon = *energyBeaconTemp;
+}
 
 void Key::DrawLevitating(Camera *camera, Shader *shader, Model *key_model, Data *data, glm::vec4 color, float dist)
 {
@@ -43,9 +49,8 @@ void Key::DrawLevitating(Camera *camera, Shader *shader, Model *key_model, Data 
 	key_model->Draw(MODEL_KEY);
 
 
-
-	// energyBeacon.SetEnergyBeacon(x,y,z,0.0f);
-	// energyBeacon.Draw(data, camera, shader);
+	energyBeacon.SetEnergyBeacon(x,y,z,0.0f);
+	energyBeacon.Draw(data, camera, shader);
 }
 
 void Key::DrawPicked(float playerx,float playery, float playerz, float camera_yaw, Camera *camera, Shader *shader, Model *key_model, Data *data, glm::vec4 color)

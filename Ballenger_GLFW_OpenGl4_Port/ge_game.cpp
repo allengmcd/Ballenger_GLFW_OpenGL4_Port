@@ -63,16 +63,20 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	col.SetColumn(TERRAIN_SIZE/2-18,terrain.GetHeight(TERRAIN_SIZE/2-18,TERRAIN_SIZE/2+8),TERRAIN_SIZE/2+8,  -90);
 	columns.push_back(col);
 
-
 	key.SetPos(883,terrain.GetHeight(883,141),141);
+	key.Load();
 	target_keys.push_back(key);
 	key.SetPos(345,terrain.GetHeight(345,229),229);
+	key.Load();
 	target_keys.push_back(key);
 	key.SetPos(268,terrain.GetHeight(268,860),860);
+	key.Load();
 	target_keys.push_back(key);
 	key.SetPos(780,terrain.GetHeight(780,858),858);
+	key.Load();
 	target_keys.push_back(key);
 	key.SetPos(265,terrain.GetHeight(265,487),487);
+	key.Load();
 	target_keys.push_back(key);
 
 
@@ -107,12 +111,12 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	camera = player_camera;
 
 
-	EnergyBeacon *energyBeaconTemp = new EnergyBeacon();
+	// EnergyBeacon *energyBeaconTemp = new EnergyBeacon();
 
-	energyBeaconTemp->Load(16,5.0f, 5000000.0f);
-	energyBeaconTemp->SetEnergyBeacon(player.GetX(),player.GetY(),player.GetZ(),0.0f);
+	// energyBeaconTemp->Load(16,5.0f, 5000000.0f);
+	// energyBeaconTemp->SetEnergyBeacon(player.GetX(),player.GetY(),player.GetZ(),0.0f);
 
-	energyBeacon = *energyBeaconTemp;
+	// energyBeacon = *energyBeaconTemp;
 	//energyBeacon = energyBeaconTemp;
 
 	//sound.Play(SOUND_AMBIENT); //TODO: this causes segfault
@@ -512,7 +516,7 @@ void Game::Render()
 	//draw player
 	player.Draw(&data,camera,&lava,&shader);
 
-	energyBeacon.Draw(&data,camera,&shader);
+	//energyBeacon.Draw(&data,camera,&shader);
 	
 	
 	Coord P; P.x = player.GetX(); P.y = player.GetY(); P.z = player.GetZ();

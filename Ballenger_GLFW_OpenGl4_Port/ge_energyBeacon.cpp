@@ -207,6 +207,10 @@ void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader)
 	shader->setMat4("view", view);
 	shader->setMat4("projection", projection);
 
+
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glBindVertexArray(beaconVAO);
 

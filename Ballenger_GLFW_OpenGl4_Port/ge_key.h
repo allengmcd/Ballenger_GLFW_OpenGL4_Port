@@ -5,6 +5,8 @@
 #include "ge_model.h"
 #include "ge_data.h"
 #include "ge_energyBeacon.h"
+#include "ge_player.h"
+
 
 #define LEVITATION_SPEED 2.0f
 #define BEACON_MIN_RADIUS 0.75f
@@ -15,6 +17,7 @@ class Key
 public:
 	Key();
 	~Key();
+	void  Load();
 	void  DrawLevitating(Camera *camera, Shader *Shader, Model *key_model, Data *Data, glm::vec4 color, float dist);
 	void  DrawPicked(float playerx,float playery, float playerz, float camera_yaw, Camera *camera, Shader *shader, Model *key_model, Data *data, glm::vec4 color);
 	void  DrawDeployed(float holex,float holey, float holez, float yaw, Camera *camera, Model *key_model, Data *data, Shader *shader, glm::vec4 color);
