@@ -114,7 +114,14 @@ void Player::Draw(Data *data, Camera *camera, Lava *lava, Shader *shader)
 
 
     model = glm::translate(model, glm::vec3(GetX(), GetY(), GetZ()));
-	model = glm::rotate(model, -GetPitch()/100, glm::vec3(-cos(GetYaw()*(PI/180))/100,0.0,sin(GetYaw()*(PI/180))/100));
+	if(GetYaw() > 90 && GetYaw() < 270)
+	{
+		model = glm::rotate(model, GetPitch()*(PI/180), glm::vec3(-cos(GetYaw()*(PI/180)),0.0,sin(GetYaw()*(PI/180))));
+	}
+	else
+	{
+		model = glm::rotate(model, -GetPitch()*(PI/180), glm::vec3(-cos(GetYaw()*(PI/180)),0.0,sin(GetYaw()*(PI/180))));
+	}
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_PLAYER));

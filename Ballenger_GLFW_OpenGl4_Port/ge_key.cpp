@@ -14,7 +14,7 @@ void Key::Load()
 {
 	EnergyBeacon *energyBeaconTemp = new EnergyBeacon();
 
-	energyBeaconTemp->Load(16,5.0f, 5000000.0f);
+	energyBeaconTemp->Load(6,1.0f, 5000000.0f);
 
 	energyBeacon = *energyBeaconTemp;
 }
@@ -95,7 +95,7 @@ void Key::DrawPicked(float playerx,float playery, float playerz, float camera_ya
 	glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)camera->SCR_WIDTH/(float)camera->SCR_HEIGHT, 0.1f, 1000.0f);
 
    	model = glm::translate(model, glm::vec3(playerx,playery+0.7,playerz));
-	//model = glm::rotate(model, ang, glm::vec3(0.0f,1.0f,0.0f));
+	model = glm::rotate(model, ang, glm::vec3(0.0f,1.0f,0.0f));
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, data->GetID(IMG_KEY));

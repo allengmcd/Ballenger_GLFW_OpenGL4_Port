@@ -50,34 +50,34 @@ void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
         }
     }
 
-    // the starting index for the base/top surface
-    //NOTE: it is used for generating indices later
-    int baseCenterIndex = (int)vertices.size() / 3;
-    int topCenterIndex = baseCenterIndex + sectorCount + 1; // include center vertex
+    // // the starting index for the base/top surface
+    // //NOTE: it is used for generating indices later
+    // int baseCenterIndex = (int)vertices.size() / 3;
+    // int topCenterIndex = baseCenterIndex + sectorCount + 1; // include center vertex
 
-    // put base and top vertices to arrays
-    for(int i = 0; i < 2; ++i)
-    {
-        float h = -height / 2.0f + i * height;           // z value; -h/2 to h/2
-        float nz = -1 + i * 2;                           // z value of normal; -1 to 1
+    // // put base and top vertices to arrays
+    // for(int i = 0; i < 2; ++i)
+    // {
+    //     float h = -height / 2.0f + i * height;           // z value; -h/2 to h/2
+    //     float nz = -1 + i * 2;                           // z value of normal; -1 to 1
 
-        // center point
-        vertices.push_back(glm::vec3(0,0,h));
-        normals.push_back(glm::vec3(0,0,nz));
-        texCoords.push_back(glm::vec2(0.5f,0.5f));
+    //     // center point
+    //     vertices.push_back(glm::vec3(0,0,h));
+    //     normals.push_back(glm::vec3(0,0,nz));
+    //     texCoords.push_back(glm::vec2(0.5f,0.5f));
 
-        for(int j = 0, k = 0; j < sectorCount; ++j, k += 3)
-        {
-            float ux = unitVertices[k];
-            float uy = unitVertices[k+1];
-            // position vector
-            vertices.push_back(glm::vec3(ux * radius, uy * radius, h)); // vx, vy, vz
-            // normal vector
-            normals.push_back(glm::vec3(0, 0, nz)); // nx, ny, nz
-            // texture coordinate
-            texCoords.push_back(glm::vec2(-ux * 0.5f + 0.5f, -uy * 0.5f + 0.5f)); // s, t
-        }
-    }
+    //     for(int j = 0, k = 0; j < sectorCount; ++j, k += 3)
+    //     {
+    //         float ux = unitVertices[k];
+    //         float uy = unitVertices[k+1];
+    //         // position vector
+    //         vertices.push_back(glm::vec3(ux * radius, uy * radius, h)); // vx, vy, vz
+    //         // normal vector
+    //         normals.push_back(glm::vec3(0, 0, nz)); // nx, ny, nz
+    //         // texture coordinate
+    //         texCoords.push_back(glm::vec2(-ux * 0.5f + 0.5f, -uy * 0.5f + 0.5f)); // s, t
+    //     }
+    // }
 
 	std::vector<float> data;
 	for (unsigned int i = 0; i < vertices.size(); ++i)
@@ -118,41 +118,41 @@ void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
         indices.push_back(k2 + 1);
     }
 
-    // indices for the base surface
-    //NOTE: baseCenterIndex and topCenterIndices are pre-computed during vertex generation
-    //      please see the previous code snippet
-    for(int i = 0, k = baseCenterIndex + 1; i < sectorCount; ++i, ++k)
-    {
-        if(i < sectorCount - 1)
-        {
-            indices.push_back(baseCenterIndex);
-            indices.push_back(k + 1);
-            indices.push_back(k);
-        }
-        else // last triangle
-        {
-            indices.push_back(baseCenterIndex);
-            indices.push_back(baseCenterIndex + 1);
-            indices.push_back(k);
-        }
-    }
+    // // indices for the base surface
+    // //NOTE: baseCenterIndex and topCenterIndices are pre-computed during vertex generation
+    // //      please see the previous code snippet
+    // for(int i = 0, k = baseCenterIndex + 1; i < sectorCount; ++i, ++k)
+    // {
+    //     if(i < sectorCount - 1)
+    //     {
+    //         indices.push_back(baseCenterIndex);
+    //         indices.push_back(k + 1);
+    //         indices.push_back(k);
+    //     }
+    //     else // last triangle
+    //     {
+    //         indices.push_back(baseCenterIndex);
+    //         indices.push_back(baseCenterIndex + 1);
+    //         indices.push_back(k);
+    //     }
+    // }
 
-    // indices for the top surface
-    for(int i = 0, k = topCenterIndex + 1; i < sectorCount; ++i, ++k)
-    {
-        if(i < sectorCount - 1)
-        {
-            indices.push_back(topCenterIndex);
-            indices.push_back(k);
-            indices.push_back(k + 1);
-        }
-        else // last triangle
-        {
-            indices.push_back(topCenterIndex);
-            indices.push_back(k);
-            indices.push_back(topCenterIndex + 1);
-        }
-    }
+    // // indices for the top surface
+    // for(int i = 0, k = topCenterIndex + 1; i < sectorCount; ++i, ++k)
+    // {
+    //     if(i < sectorCount - 1)
+    //     {
+    //         indices.push_back(topCenterIndex);
+    //         indices.push_back(k);
+    //         indices.push_back(k + 1);
+    //     }
+    //     else // last triangle
+    //     {
+    //         indices.push_back(topCenterIndex);
+    //         indices.push_back(k);
+    //         indices.push_back(topCenterIndex + 1);
+    //     }
+    // }
 
     for(int i = 0; i < indices.size(); i++)
     {
@@ -164,7 +164,6 @@ void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
 
 
     indexCount = indices.size();
-
 	unsigned int vbo, ebo, vao;
     glGenVertexArrays(1, &beaconVAO);
 	glGenBuffers(1, &vbo);
@@ -192,7 +191,6 @@ int counter1 = 0;
 int counter2 = 0;
 void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader)
 {
-
 	glm::mat4 model = glm::mat4(1.0f);
 	glm::mat4 view =  camera->GetViewMatrix(); // remove translation from the view matrix
 	glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)camera->SCR_WIDTH/(float)camera->SCR_HEIGHT, 0.1f, 1000.0f);
@@ -202,21 +200,22 @@ void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader)
 	model = glm::rotate(model, PI/2, glm::vec3(-cos(0.0f)/100,0.0,0.0f));
 
 
+    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_BLEND);
+    //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
 	shader->Activate(PROGRAM_ENERGYBEACON);
 	shader->setMat4("model", model);
 	shader->setMat4("view", view);
 	shader->setMat4("projection", projection);
 
 
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glBindVertexArray(beaconVAO);
 
 
     glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
-    //glDrawArrays(GL_TRIANGLE_STRIP, 4, 0);
+    // glDrawArrays(GL_TRIANGLE_STRIP, 0, indexCount);
    	// glBindVertexArray(beaconVAO);
     // // glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
     // glDrawElements(GL_TRIANGLE_STRIP, 21, GL_UNSIGNED_INT, 0);
