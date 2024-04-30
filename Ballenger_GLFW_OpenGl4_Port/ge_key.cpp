@@ -14,7 +14,7 @@ void Key::Load()
 {
 	EnergyBeacon *energyBeaconTemp = new EnergyBeacon();
 
-	energyBeaconTemp->Load(6,1.0f, 5000000.0f);
+	energyBeaconTemp->Load(16,1.0f, 5000000.0f);
 
 	energyBeacon = *energyBeaconTemp;
 }

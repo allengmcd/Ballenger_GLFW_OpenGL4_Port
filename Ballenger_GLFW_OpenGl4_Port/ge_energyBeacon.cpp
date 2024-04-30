@@ -8,187 +8,106 @@ EnergyBeacon::~EnergyBeacon(){}
 
 void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
 {
-	// std::vector<glm::vec3> positions;
-	// std::vector<glm::vec2> uv;
-	// std::vector<glm::vec3> normals;
+    float sectorIncrement = (2*PI)/sectorCount;
 
-    std::vector<glm::vec3> vertices;
-    std::vector<glm::vec3> normals;
-    std::vector<glm::vec2> texCoords;
-	std::vector<unsigned int> indices;
 
-    sectorCount *=4;
-    float sectorStep = 2 * PI / (sectorCount);
-    float sectorAngle;  // radian
-
-    std::vector<float> unitVertices;
-    for(int i = 0; i <= sectorCount; ++i)
+    std::vector<glm::vec3> vertices_top;
+    std::vector<glm::vec3> vertices_bottom;
+    for(int i =0 ; i < sectorCount; i++)
     {
-        sectorAngle = i * sectorStep;
-        unitVertices.push_back(cos(sectorAngle)); // x
-        unitVertices.push_back(sin(sectorAngle)); // y
-        unitVertices.push_back(0);                // z
+        glm::vec3 vertex;
+        vertex.x = radius * cos(i*sectorIncrement);
+        vertex.y = 0.0f;
+        vertex.z = radius * sin(i*sectorIncrement);
+
+        vertices_top.push_back(vertex);
     }
 
-// put side vertices to arrays
-    for(int i = 0; i < 2; ++i)
-    {
-        float h = -height / 2.0f + i * height;           // z value; -h/2 to h/2
-        float t = 1.0f - i;                              // vertical tex coord; 1 to 0
 
-        for(int j = 0, k = 0; j <= sectorCount; ++j, k += 3)
+
+    for(int i =0 ; i < sectorCount; i++)
+    {
+        glm::vec3 vertex;
+        vertex.x = radius * cos(i*sectorIncrement);
+        vertex.y = height;
+        vertex.z = radius * sin(i*sectorIncrement);
+
+        vertices_bottom.push_back(vertex);
+    }
+
+
+    std::vector<float> data;
+    for(int i = 0; i < vertices_bottom.size() && i < vertices_top.size(); i++)
+    {
+        data.push_back(vertices_top[i].x);
+        data.push_back(vertices_top[i].y);
+        data.push_back(vertices_top[i].z);
+        data.push_back(0.0f);
+        data.push_back(0.0f);
+        data.push_back(0.0f);
+        data.push_back(0.0f);
+        data.push_back(0.0f);
+        data.push_back(vertices_bottom[i].x);
+        data.push_back(vertices_bottom[i].y);
+        data.push_back(vertices_bottom[i].z);
+        data.push_back(0.0f);
+        data.push_back(0.0f);
+        data.push_back(0.0f);
+        data.push_back(0.0f);
+        data.push_back(0.0f);
+    }
+
+    std::vector<unsigned int> indices;
+    for(int i =0; i <= (data.size()/8)-2; i+=2)
+    {
+        int vertex1 = 0;
+        int vertex2 = 0;
+        int vertex3 = 0;
+        int vertex4 = 0;
+
+        if(i < (data.size()/8)-2)
         {
-            float ux = unitVertices[k];
-            float uy = unitVertices[k+1];
-            float uz = unitVertices[k+2];
-            // position vector
-            vertices.push_back(glm::vec3(ux * radius, uy * radius, h)); // vx, vy, vz
-            // normal vector
-            normals.push_back(glm::vec3(ux, uy, uz)); // nx, ny, nz
-            // texture coordinate
-            texCoords.push_back(glm::vec2((float)j / sectorCount, t)); // s, t
+            vertex1 = i;
+            vertex2 = i+1;
+            vertex3 = i+2;
+            vertex4 = i+3;
         }
-    }
+        else
+        {
+            vertex1 = i;
+            vertex2 = i+1;
+            vertex3 = 0;
+            vertex4 = 1;	
+        }
 
-    // // the starting index for the base/top surface
-    // //NOTE: it is used for generating indices later
-    // int baseCenterIndex = (int)vertices.size() / 3;
-    // int topCenterIndex = baseCenterIndex + sectorCount + 1; // include center vertex
-
-    // // put base and top vertices to arrays
-    // for(int i = 0; i < 2; ++i)
-    // {
-    //     float h = -height / 2.0f + i * height;           // z value; -h/2 to h/2
-    //     float nz = -1 + i * 2;                           // z value of normal; -1 to 1
-
-    //     // center point
-    //     vertices.push_back(glm::vec3(0,0,h));
-    //     normals.push_back(glm::vec3(0,0,nz));
-    //     texCoords.push_back(glm::vec2(0.5f,0.5f));
-
-    //     for(int j = 0, k = 0; j < sectorCount; ++j, k += 3)
-    //     {
-    //         float ux = unitVertices[k];
-    //         float uy = unitVertices[k+1];
-    //         // position vector
-    //         vertices.push_back(glm::vec3(ux * radius, uy * radius, h)); // vx, vy, vz
-    //         // normal vector
-    //         normals.push_back(glm::vec3(0, 0, nz)); // nx, ny, nz
-    //         // texture coordinate
-    //         texCoords.push_back(glm::vec2(-ux * 0.5f + 0.5f, -uy * 0.5f + 0.5f)); // s, t
-    //     }
-    // }
-
-	std::vector<float> data;
-	for (unsigned int i = 0; i < vertices.size(); ++i)
-	{
-		data.push_back(vertices[i].x);
-		data.push_back(vertices[i].y);
-		data.push_back(vertices[i].z);
-		if (normals.size() > 0)
-		{
-			data.push_back(normals[i].x);
-			data.push_back(normals[i].y);
-			data.push_back(normals[i].z);
-		}
-		if (texCoords.size() > 0)
-		{
-			data.push_back(texCoords[i].x);
-			data.push_back(texCoords[i].y);
-		}
-	}
+        
+        indices.push_back(vertex1);
+        indices.push_back(vertex2);
+        indices.push_back(vertex3);
+        
+        indices.push_back(vertex2);
+        indices.push_back(vertex3);
+        indices.push_back(vertex4);
 
 
-    // generate CCW index list of cylinder triangles
-    int k1 = 0;                         // 1st vertex index at base
-    int k2 = sectorCount + 1;           // 1st vertex index at top
 
-    // indices for the side surface
-    for(int i = 0; i < sectorCount; ++i, ++k1, ++k2)
-    {
-        // 2 triangles per sector
-        // k1 => k1+1 => k2
-        indices.push_back(k1);
-        indices.push_back(k1 + 1);
-        indices.push_back(k2);
-
-        // k2 => k1+1 => k2+1
-        indices.push_back(k2);
-        indices.push_back(k1 + 1);
-        indices.push_back(k2 + 1);
+        std::cout << "triangle1: " << data[vertex1*8] << " : " << data[vertex2*8] << " : " << data[vertex3*8] << std::endl;
+        std::cout << "triangle2: " << data[vertex2*8] << " : " << data[vertex3*8] << " : " << data[vertex4*8] << std::endl;
+        std::cout << std::endl;
     }
 
 
-    float cubeVertices[] = {
-        // positions          //Normals         // texture Coords 
-        -0.5f,  0000.0f, -0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f, -000.0f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f,  1000.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -000.0f, -0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f, -000.0f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f,  0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f,  0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f,  1000.5f,  0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -0000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f, -0000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f, -0000.0f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f, -0000.0f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f, -0000.0f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -0000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f,  1000.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-         0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f,  1000.5f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        -0.5f,  1000.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f
-    };
-
-    indexCount = 36;
-    // indexCount = indices.size();
-	// unsigned int vbo, ebo, vao;
-    // glGenVertexArrays(1, &beaconVAO);
-	// glGenBuffers(1, &vbo);
-	// glGenBuffers(1, &ebo);
-
-    // glBindVertexArray(beaconVAO);
-	// glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	// glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
-	// //glBufferData(GL_ARRAY_BUFFER, 32 * sizeof(float), &vertices2[0], GL_STATIC_DRAW);
-
-
-    // cube VAO
-    unsigned int cubeVAO, cubeVBO;
+    indexCount = indices.size();
+	unsigned int vbo, ebo, vao;
     glGenVertexArrays(1, &beaconVAO);
-    glGenBuffers(1, &cubeVBO);
+	glGenBuffers(1, &vbo);
+	glGenBuffers(1, &ebo);
+
     glBindVertexArray(beaconVAO);
-    glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), &cubeVertices, GL_STATIC_DRAW);
-
-
-
-
-
-
-
-
-	// glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	// glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 	unsigned int stride = (3 + 2 + 3) * sizeof(float);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
@@ -229,8 +148,8 @@ void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader, glm::vec4 be
     glBindVertexArray(beaconVAO);
 
 
-    glDrawArrays(GL_TRIANGLES, 0, 36);
-    // glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
+    // glDrawArrays(GL_TRIANGLES, 0, 36);
+    glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     // glDrawArrays(GL_TRIANGLE_STRIP, 0, indexCount);
    	// glBindVertexArray(beaconVAO);
     // // glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
