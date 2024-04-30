@@ -394,7 +394,6 @@ void Game::Physics(Bicho &object)
 		if(object.GetZ() <= initialPos.z && object.GetX() > initialPos.x) yaw = PI/2 + atan( dz / dx ); //segundo cuadrante
 		if(object.GetZ() < initialPos.z && object.GetX() <= initialPos.x) yaw = PI + atan( dx / dz );//tercer cuadrante
 		if(object.GetZ() >= initialPos.z && object.GetX() < initialPos.x) yaw = PI*3/2 + atan( dz / dx );//cuarto cuadrante
-		std::cout << yaw*(180/PI) << std::endl;
 		object.SetYaw(yaw*(180/PI));
 
 		float perimeter = PI*2*RADIUS;

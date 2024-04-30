@@ -88,12 +88,6 @@ void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
         indices.push_back(vertex2);
         indices.push_back(vertex3);
         indices.push_back(vertex4);
-
-
-
-        std::cout << "triangle1: " << data[vertex1*8] << " : " << data[vertex2*8] << " : " << data[vertex3*8] << std::endl;
-        std::cout << "triangle2: " << data[vertex2*8] << " : " << data[vertex3*8] << " : " << data[vertex4*8] << std::endl;
-        std::cout << std::endl;
     }
 
 

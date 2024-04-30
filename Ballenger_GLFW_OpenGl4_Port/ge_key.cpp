@@ -174,6 +174,12 @@ void Key::DrawDeployed(float holex,float holey,float holez, float yaw, Camera *c
 
 
 	key_model->Draw(MODEL_KEY);
+
+
+
+	// energyBeacon.SetEnergyBeacon(holex,holey,holez,0.0f);
+	// color.a = 0.5f;
+	// energyBeacon.Draw(data, camera, shader, color);
 }
 
 void Key::SetPos(float posx, float posy, float posz)
