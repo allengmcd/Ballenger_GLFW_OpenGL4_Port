@@ -50,7 +50,8 @@ void Key::DrawLevitating(Camera *camera, Shader *shader, Model *key_model, Data 
 
 
 	energyBeacon.SetEnergyBeacon(x,y,z,0.0f);
-	energyBeacon.Draw(data, camera, shader);
+	color.a = 0.5f;
+	energyBeacon.Draw(data, camera, shader, color);
 }
 
 void Key::DrawPicked(float playerx,float playery, float playerz, float camera_yaw, Camera *camera, Shader *shader, Model *key_model, Data *data, glm::vec4 color)

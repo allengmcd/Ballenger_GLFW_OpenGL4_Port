@@ -14,7 +14,7 @@ public:
 	EnergyBeacon();
 	~EnergyBeacon();
 	void Load(unsigned int sectorCount, float radius, float height);
-	void Draw(Data *data, Camera *camera,Shader *shader);	
+	void Draw(Data *data, Camera *camera,Shader *shader, glm::vec4 beaconColor );	
 	float GetX();
 	float GetY();
 	float GetZ();

@@ -118,63 +118,77 @@ void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
         indices.push_back(k2 + 1);
     }
 
-    // // indices for the base surface
-    // //NOTE: baseCenterIndex and topCenterIndices are pre-computed during vertex generation
-    // //      please see the previous code snippet
-    // for(int i = 0, k = baseCenterIndex + 1; i < sectorCount; ++i, ++k)
-    // {
-    //     if(i < sectorCount - 1)
-    //     {
-    //         indices.push_back(baseCenterIndex);
-    //         indices.push_back(k + 1);
-    //         indices.push_back(k);
-    //     }
-    //     else // last triangle
-    //     {
-    //         indices.push_back(baseCenterIndex);
-    //         indices.push_back(baseCenterIndex + 1);
-    //         indices.push_back(k);
-    //     }
-    // }
 
-    // // indices for the top surface
-    // for(int i = 0, k = topCenterIndex + 1; i < sectorCount; ++i, ++k)
-    // {
-    //     if(i < sectorCount - 1)
-    //     {
-    //         indices.push_back(topCenterIndex);
-    //         indices.push_back(k);
-    //         indices.push_back(k + 1);
-    //     }
-    //     else // last triangle
-    //     {
-    //         indices.push_back(topCenterIndex);
-    //         indices.push_back(k);
-    //         indices.push_back(topCenterIndex + 1);
-    //     }
-    // }
+    float cubeVertices[] = {
+        // positions          //Normals         // texture Coords 
+        -0.5f,  0000.0f, -0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f, -000.0f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f,  1000.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -000.0f, -0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f, -000.0f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f,  0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f,  0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f,  1000.5f,  0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -0000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f, -0000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f, -0000.0f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f, -0000.0f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f, -0000.0f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -0000.0f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -0000.0f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f,  1000.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f, -0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+         0.5f,  1000.5f,  0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f,  1000.5f,  0.5f,  0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f,  1000.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f
+    };
 
-    for(int i = 0; i < indices.size(); i++)
-    {
-        std::cout << indices[i] << ": " << data[indices[i]*8] << ", " << data[indices[i]*8+1] << ", " << data[indices[i]*8+2] << std::endl;
-    }
+    indexCount = 36;
+    // indexCount = indices.size();
+	// unsigned int vbo, ebo, vao;
+    // glGenVertexArrays(1, &beaconVAO);
+	// glGenBuffers(1, &vbo);
+	// glGenBuffers(1, &ebo);
+
+    // glBindVertexArray(beaconVAO);
+	// glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	// glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
+	// //glBufferData(GL_ARRAY_BUFFER, 32 * sizeof(float), &vertices2[0], GL_STATIC_DRAW);
 
 
-
-
-
-    indexCount = indices.size();
-	unsigned int vbo, ebo, vao;
+    // cube VAO
+    unsigned int cubeVAO, cubeVBO;
     glGenVertexArrays(1, &beaconVAO);
-	glGenBuffers(1, &vbo);
-	glGenBuffers(1, &ebo);
-
+    glGenBuffers(1, &cubeVBO);
     glBindVertexArray(beaconVAO);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
-	//glBufferData(GL_ARRAY_BUFFER, 32 * sizeof(float), &vertices2[0], GL_STATIC_DRAW);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), &cubeVertices, GL_STATIC_DRAW);
+
+
+
+
+
+
+
+
+	// glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	// glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 	unsigned int stride = (3 + 2 + 3) * sizeof(float);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
@@ -189,15 +203,15 @@ void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
 
 int counter1 = 0;
 int counter2 = 0;
-void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader)
+void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader, glm::vec4 beaconColor )
 {
 	glm::mat4 model = glm::mat4(1.0f);
 	glm::mat4 view =  camera->GetViewMatrix(); // remove translation from the view matrix
 	glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)camera->SCR_WIDTH/(float)camera->SCR_HEIGHT, 0.1f, 1000.0f);
 
-
-    model = glm::translate(model, glm::vec3(GetX(), GetY()+20, GetZ()));
-	model = glm::rotate(model, PI/2, glm::vec3(-cos(0.0f)/100,0.0,0.0f));
+    
+    model = glm::translate(model, glm::vec3(GetX(), GetY(), GetZ()));
+	//model = glm::rotate(model, PI/2, glm::vec3(1.0f,0.0,0.0f));
 
 
     glEnable(GL_DEPTH_TEST);
@@ -208,13 +222,15 @@ void EnergyBeacon::Draw(Data *data, Camera *camera, Shader *shader)
 	shader->setMat4("model", model);
 	shader->setMat4("view", view);
 	shader->setMat4("projection", projection);
+	shader->setVec4("bColor", beaconColor);
 
 
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glBindVertexArray(beaconVAO);
 
 
-    glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    // glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
     // glDrawArrays(GL_TRIANGLE_STRIP, 0, indexCount);
    	// glBindVertexArray(beaconVAO);
     // // glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
