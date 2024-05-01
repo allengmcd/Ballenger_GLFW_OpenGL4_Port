@@ -110,7 +110,6 @@ void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
 	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, stride, (void*)(6 * sizeof(float)));
 
-    //beaconVAO = vao;
     ang = 0;
 }
 
