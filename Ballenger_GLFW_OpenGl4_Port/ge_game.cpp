@@ -258,7 +258,7 @@ bool Game::Process()
 		}
 		if(keys[P_JUMP])
 		{
-			if(player.GetY()-RADIUS < terrain.GetHeight(player.GetX(),player.GetZ())+0.01f)
+			if((player.GetY()-(2*RADIUS)) < terrain.GetHeight(player.GetX(),player.GetZ())+0.01f)
 			{
 				player.SetVY(PLAYER_JUMP_SPEED);
 				//Sound.PlayBounce(1.0f);
