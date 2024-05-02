@@ -36,6 +36,9 @@ void Column::Draw(Shader *shader,Model *column_model,Data *data,Camera *camera,i
 	shader->setMat4("model", model);
 	shader->setMat4("view", view);
 	shader->setMat4("projection", projection);
+	shader->setVec3("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+	shader->setVec3("lightPos", glm::vec3(50.0f, 50.0f, 50.0f));
+	shader->setVec3("viewPos", camera->Position);
 
 
 	column_model->Draw(MODEL_COLUMN);

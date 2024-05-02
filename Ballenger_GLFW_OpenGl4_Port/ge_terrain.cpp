@@ -318,6 +318,11 @@ void Terrain::Draw(Camera *camera)
 		shader->setMat4("model", model);
 		shader->setMat4("view", view);
 		shader->setMat4("projection", projection);
+		shader->setMat4("projection", projection);
+		shader->setVec3("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+		shader->setVec3("lightPos", glm::vec3(50.0f, 50.0f, 50.0f));
+		shader->setVec3("viewPos", camera->Position);
+
 		for(int x = 0; x < 1024;x++)
 		{
         	glDrawArrays(GL_TRIANGLE_STRIP, x*1024*2, 1024*2);
