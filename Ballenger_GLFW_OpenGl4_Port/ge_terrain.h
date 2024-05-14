@@ -4,6 +4,7 @@
 #include "ge_shader.h"
 #include "ge_data.h"
 #include "ge_camera.h"
+#include <Magick++.h>
 
 #define TERRAIN_SIZE    1024
 const float MAX_HEIGHT = 64.0f;
@@ -29,6 +30,7 @@ private:
 	Shader *shader;
 	Data *data;
 	GLubyte heightmap[TERRAIN_SIZE * TERRAIN_SIZE];
+	GLfloat heightmap2[TERRAIN_SIZE * TERRAIN_SIZE];
 	GLfloat terrainBuffer[(TERRAIN_SIZE * TERRAIN_SIZE)*(3+3+2)*2]; 
 	std::vector<Triangle> triangles;
 	int id_Terrain,id_Normals;

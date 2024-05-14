@@ -24,7 +24,7 @@ void main()
     vec3 Normal = mat3(transpose(inverse(model))) * aNormal;
     
     // ambient
-    float ambientStrength = 0.1;
+    float ambientStrength = 0.8;
     vec3 ambient = ambientStrength * lightColor;
   	
     // diffuse   

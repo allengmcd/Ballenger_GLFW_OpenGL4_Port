@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <Magick++.h>
 
 Terrain::Terrain(){}
 
@@ -108,6 +109,9 @@ Vector Terrain::SetNormalPerVertex(int x,float y,int z)
 
 void Terrain::Load(int level, Shader *Shader, Data *Data)
 {
+	Magick::InitializeMagick("");
+
+	// Magick::Image level_map;
 	data = Data;
 	shader = Shader;
 	std::cout << "Loading Terrain, level: " << level << std::endl;
@@ -119,9 +123,6 @@ void Terrain::Load(int level, Shader *Shader, Data *Data)
 	else		 sprintf(file,"Levels/terrain%d.raw",level);
 	FILE *pFile = fopen(file, "rb");
 	std::cout << "Terrain fread" << std::endl;
-
-	//heightmap = (GLubyte*)malloc((TERRAIN_SIZE * TERRAIN_SIZE) * sizeof(GLubyte));
-	//terrainBuffer = (GLfloat*)malloc(((TERRAIN_SIZE * TERRAIN_SIZE)*(3+3+2)*2) * sizeof(GLfloat));
 
 	int terrainReturnSize = fread(heightmap,TERRAIN_SIZE * TERRAIN_SIZE,sizeof(GLubyte),pFile); 
 	
@@ -137,6 +138,39 @@ void Terrain::Load(int level, Shader *Shader, Data *Data)
 
 	std::cout << "fclose Terrain finish" << std::endl;
 
+
+
+	Magick::InitializeMagick("");
+
+	Magick::Image level_map;
+    // Read a file into image object 
+    level_map.read( "../../../../Levels/terrain01.jpg" );
+
+	int map_width = level_map.columns();
+	int map_height = level_map.rows();
+
+	// get a "pixel cache" for the entire image
+
+	for(int column = 0; column < map_width; column++)
+	{
+		for(int row = 0; row < map_height; row++)
+		{
+			Magick::ColorRGB pixel_color = level_map.pixelColor( column, row );
+
+			float greyscale = (pixel_color.red() + pixel_color.green() + pixel_color.blue())/3;
+			heightmap2[row * TERRAIN_SIZE + column] = greyscale*255;
+		}
+	}
+
+
+	for(int i = 0; i < TERRAIN_SIZE*TERRAIN_SIZE; i++)
+	{
+		float height1 = (float)heightmap[i];
+		if((heightmap2[i]+6 < height1 || heightmap2[i]-6 > height1))
+		{
+			std::cout << heightmap2[i] << " : " << height1 << std::endl;
+		}
+	}
 
 
 	// std::cout << "test1" << std::endl;
@@ -157,8 +191,8 @@ void Terrain::Load(int level, Shader *Shader, Data *Data)
 		for (int x = 0; x < TERRAIN_SIZE; x++)
 		{
 			// render two vertices of the strip at once
-			float scaledHeight = heightmap[z * TERRAIN_SIZE + x] / SCALE_FACTOR;
-			float nextScaledHeight = heightmap[(z + 1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
+			float scaledHeight = heightmap2[z * TERRAIN_SIZE + x] / SCALE_FACTOR;
+			float nextScaledHeight = heightmap2[(z + 1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
 
 			// std::cout << "bufferCounter: " << bufferCounter <<  "         x: " << x << "         z: " << z << "          scaledHeight: " << scaledHeight << "     nextScaledHeight: " << nextScaledHeight << std::endl;
 
