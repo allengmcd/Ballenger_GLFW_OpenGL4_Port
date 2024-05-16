@@ -29,6 +29,9 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
     // -----------------------------
     glEnable(GL_DEPTH_TEST);
 
+	levelConfig.LoadLevel(1);
+	
+
 	// //Sound initialization
 	//sound.Load();
 
@@ -44,12 +47,6 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	//level initialization(terrain, lava and skybox)
 	scene.LoadLevel(1,&terrain,&shader,&data,&lava);
 
-	float test = terrain.GetHeight(345,229);
-	test = terrain.GetHeight(883,141);
-	test = terrain.GetHeight(268,860);
-	test = terrain.GetHeight(780,858);
-	test = terrain.GetHeight(265,487);
-
 	// //columns initialization
 	Column col;
 	col.SetColumn(TERRAIN_SIZE/2+18,terrain.GetHeight(TERRAIN_SIZE/2+18,TERRAIN_SIZE/2+8),TERRAIN_SIZE/2+8,   90);
@@ -62,6 +59,26 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	columns.push_back(col);
 	col.SetColumn(TERRAIN_SIZE/2-18,terrain.GetHeight(TERRAIN_SIZE/2-18,TERRAIN_SIZE/2+8),TERRAIN_SIZE/2+8,  -90);
 	columns.push_back(col);
+
+	// std::vector<LevelFile::Column> column_list = levelConfig.CurrentLevel.get_data().get_columns();
+	// for(int i = 0 ; i < column_list.size(); i++)
+	// {
+	// 	LevelFile::Column column_data = column_list.at(i);
+	// 	LevelFile::Coord column_coord = column_data.get_coord();
+	// 	col.SetColumn(column_coord.get_x(), terrain.GetHeight(column_coord.get_x(),column_coord.get_y()), column_coord.get_y(), -90);
+	// 	columns.push_back(col);
+	// }
+
+
+
+	// std::vector<LevelFile::Column> key_list = levelConfig.CurrentLevel.get_data().get_keys();
+	// for(int i = 0 ; i < key_list.size(); i++)
+	// {
+	// 	LevelFile::Column key_data = key_list.at(i);
+	// 	LevelFile::Coord key_coord = key_data.get_coord();
+	// 	key.SetPos(key_coord.get_x(), terrain.GetHeight(key_coord.get_x(),key_coord.get_y()), key_coord.get_y());
+	// 	target_keys.push_back(key);
+	// }
 
 	key.SetPos(883,terrain.GetHeight(883,141),141);
 	key.Load();
@@ -99,8 +116,25 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	rp.SetPos(816,terrain.GetHeight(816,816),816);
 	respawn_points.push_back(rp);
 
+
+	std::vector<LevelFile::RespawnPoint> respawnPoint_list = levelConfig.CurrentLevel.get_data().get_respawn_points();
+	for(int i = 0 ; i < respawnPoint_list.size(); i++)
+	{
+		LevelFile::RespawnPoint respawnPoint_data = respawnPoint_list.at(i);
+		LevelFile::Coord respawnPoint_coord = respawnPoint_data.get_coord();
+		rp.SetPos(respawnPoint_coord.get_x(), terrain.GetHeight(respawnPoint_coord.get_x(),respawnPoint_coord.get_y()), respawnPoint_coord.get_y());
+		respawn_points.push_back(rp);
+	}
+
+
+
 	//Portal initialization
 	portal.SetPos(TERRAIN_SIZE/2,terrain.GetHeight(TERRAIN_SIZE/2,TERRAIN_SIZE/2+32),TERRAIN_SIZE/2+32);
+
+	LevelFile::Portal portal_data = levelConfig.CurrentLevel.get_data().get_portal();
+	LevelFile::Coord portal_coord = portal_data.get_coord();
+	portal.SetPos(portal_coord.get_x(),terrain.GetHeight(portal_coord.get_x(),portal_coord.get_y()),portal_coord.get_y());
+
 
 	//Player initialization
 	player.Load();

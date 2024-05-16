@@ -34,6 +34,7 @@ endif()
 find_package(glfw3 CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(ImageMagick REQUIRED COMPONENTS Magick++)
+find_package(nlohmann_json REQUIRED)
 
 target_compile_definitions(Ballenger_GLFW_OpenGl4_Port PRIVATE
   MAGICKCORE_QUANTUM_DEPTH=16
@@ -50,6 +51,6 @@ execute_process(COMMAND Magick++-config --ldflags
   OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-target_link_libraries(Ballenger_GLFW_OpenGl4_Port PRIVATE glfw ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES} ${ImageMagick_LIBRARIES})
+target_link_libraries(Ballenger_GLFW_OpenGl4_Port PRIVATE glfw ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES} ${ImageMagick_LIBRARIES} nlohmann_json::nlohmann_json)
 
 # TODO: Add tests and install targets if needed.

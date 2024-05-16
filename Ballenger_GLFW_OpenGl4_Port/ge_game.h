@@ -12,6 +12,7 @@
 #include "ge_portal.h"
 #include "ge_respawnPoint.h"
 #include "ge_playerCamera.h"
+#include "ge_levelConfig.h"
 
 
 #define SCREEN_WIDTH	800
@@ -99,6 +100,7 @@ private:
 	GLFWwindow *window;
 	Key key;
 	EnergyBeacon energyBeacon;
+	LevelConfig levelConfig;
 
 	//void Physics(Bicho &object);
 };

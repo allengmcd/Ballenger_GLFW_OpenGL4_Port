@@ -67,33 +67,33 @@ Vector Terrain::SetNormalPerVertex(int x,float y,int z)
 	if(x == 0)
 	{
 		left_y  = y;
-		right_y = heightmap[z * TERRAIN_SIZE + (x+1)] / SCALE_FACTOR;
+		right_y = heightmap2[z * TERRAIN_SIZE + (x+1)] / SCALE_FACTOR;
 	}
 	else if(x == TERRAIN_SIZE-1)
 	{
-		left_y  = heightmap[z * TERRAIN_SIZE + (x-1)] / SCALE_FACTOR;
+		left_y  = heightmap2[z * TERRAIN_SIZE + (x-1)] / SCALE_FACTOR;
 		right_y = y;
 	}
 	else
 	{
-		left_y  = heightmap[z * TERRAIN_SIZE + (x-1)] / SCALE_FACTOR;
-		right_y = heightmap[z * TERRAIN_SIZE + (x+1)] / SCALE_FACTOR;
+		left_y  = heightmap2[z * TERRAIN_SIZE + (x-1)] / SCALE_FACTOR;
+		right_y = heightmap2[z * TERRAIN_SIZE + (x+1)] / SCALE_FACTOR;
 	}
 
 	if(z == 0)
 	{
 		up_y   = y;
-		down_y = heightmap[(z+1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
+		down_y = heightmap2[(z+1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
 	}
 	else if(z == TERRAIN_SIZE-1)
 	{
-		up_y   = heightmap[(z-1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
+		up_y   = heightmap2[(z-1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
 		down_y = y;
 	}
 	else
 	{
-		up_y   = heightmap[(z-1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
-		down_y = heightmap[(z+1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
+		up_y   = heightmap2[(z-1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
+		down_y = heightmap2[(z+1) * TERRAIN_SIZE + x] / SCALE_FACTOR;
 	}
 
 	X.y = right_y - left_y;
@@ -126,7 +126,7 @@ void Terrain::Load(int level, Shader *Shader, Data *Data)
 
 	int terrainReturnSize = fread(heightmap,TERRAIN_SIZE * TERRAIN_SIZE,sizeof(GLubyte),pFile); 
 	
-
+	
 	std::cout << "Terrain check, terrainReturnSize: " << terrainReturnSize << std::endl;
 	if(terrainReturnSize != (TERRAIN_SIZE * TERRAIN_SIZE))
 	{
@@ -144,7 +144,7 @@ void Terrain::Load(int level, Shader *Shader, Data *Data)
 
 	Magick::Image level_map;
     // Read a file into image object 
-    level_map.read( "../../../../Levels/terrain01.jpg" );
+    level_map.read( "../../../../Levels/level03.jpg" );
 
 	int map_width = level_map.columns();
 	int map_height = level_map.rows();
@@ -163,14 +163,14 @@ void Terrain::Load(int level, Shader *Shader, Data *Data)
 	}
 
 
-	for(int i = 0; i < TERRAIN_SIZE*TERRAIN_SIZE; i++)
-	{
-		float height1 = (float)heightmap[i];
-		if((heightmap2[i]+6 < height1 || heightmap2[i]-6 > height1))
-		{
-			std::cout << heightmap2[i] << " : " << height1 << std::endl;
-		}
-	}
+	// for(int i = 0; i < TERRAIN_SIZE*TERRAIN_SIZE; i++)
+	// {
+	// 	float height1 = (float)heightmap[i];
+	// 	if((heightmap2[i]+6 < height1 || heightmap2[i]-6 > height1))
+	// 	{
+	// 		std::cout << heightmap2[i] << " : " << height1 << std::endl;
+	// 	}
+	// }
 
 
 	// std::cout << "test1" << std::endl;
@@ -368,7 +368,7 @@ void Terrain::Draw(Camera *camera)
 
 float Terrain::GetVertexHeigh(int x, int z)
 {
-	return heightmap[(int)z * TERRAIN_SIZE + (int)x] / SCALE_FACTOR;
+	return heightmap2[(int)z * TERRAIN_SIZE + (int)x] / SCALE_FACTOR;
 }
 
 float Terrain::GetHeight(float x,float z)
