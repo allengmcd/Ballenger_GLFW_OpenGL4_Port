@@ -142,6 +142,7 @@ void Terrain::Load(int level, Shader *Shader, Data *Data)
 
 	Magick::InitializeMagick("");
 
+
 	Magick::Image level_map;
     // Read a file into image object 
     level_map.read( "../../../../Levels/level03.jpg" );
