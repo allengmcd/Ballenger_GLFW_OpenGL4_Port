@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ge_texture.h"
+#include "ge_levelConfig.h"
 
 //Image array size
 #define NUM_TEX		 15
@@ -32,7 +33,7 @@ public:
 
 	int  GetID(int img);
 	void GetSize(int img, int *w, int *h);
-	bool Load();
+	bool Load(LevelConfig levelConfig);
 
 private:
 	Texture textures[NUM_TEX];

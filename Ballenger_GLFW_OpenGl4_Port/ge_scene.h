@@ -13,7 +13,7 @@ public:
 	Scene(void);
 	virtual ~Scene(void);
 
-	void LoadLevel(int level, Terrain *Terrain, Shader *Shader, Data *Data, Lava *Lava);
+	void LoadLevel(LevelConfig levelConfig, Terrain *Terrain, Shader *Shader, Data *Data, Lava *Lava);
 	void Draw(Terrain *Terrain, Shader *Shader, Camera *Camera, Data *Data, Lava *Lava);
 
 private:

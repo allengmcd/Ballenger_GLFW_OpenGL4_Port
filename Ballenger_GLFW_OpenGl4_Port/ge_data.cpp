@@ -26,13 +26,13 @@ bool Data::LoadImage(int img, const char *filename, int type)
 
 	return true;
 }
-bool Data::Load()
+
+bool Data::Load(LevelConfig levelConfig)
 {
 	int res;
 
-
-	char grass[] = "Textures/grass.png\0";
-	char rock[] = "Textures/rock.png\0";
+	const char* grass = levelConfig.CurrentLevel.get_data().get_terrain().get_horizontal_texture().c_str();
+	const char* rock = levelConfig.CurrentLevel.get_data().get_terrain().get_vertical_texture().c_str();
 	char lava[] = "Textures/lava.png\0";
 	char skybox[] = "Textures/skybox.png\0";
 	char player[] = "Textures/player.png\0";
