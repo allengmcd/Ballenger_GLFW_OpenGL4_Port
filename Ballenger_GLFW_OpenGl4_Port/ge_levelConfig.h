@@ -19,6 +19,7 @@ public:
     void LoadLevel(int level);
 
     LevelFile::Level CurrentLevel;
+    LevelFile::Stage CurrentStage;
 private:
 
 };

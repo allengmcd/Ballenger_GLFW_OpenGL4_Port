@@ -8,7 +8,7 @@ Lava::Lava()
 }
 Lava::~Lava(){}
 
-void Lava::Load(float terrain_size, Shader *Shader, Data *Data)
+void Lava::Load(float terrain_size, float max_height, float min_height, float flow_speed, Shader *Shader, Data *Data)
 {
 	shader = Shader;
     data = Data;

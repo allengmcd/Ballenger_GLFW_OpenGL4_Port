@@ -54,6 +54,15 @@
         "bitset": "cpp",
         "span": "cpp",
         "regex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "any": "cpp",
+        "codecvt": "cpp",
+        "forward_list": "cpp",
+        "map": "cpp",
+        "iomanip": "cpp",
+        "ratio": "cpp",
+        "sstream": "cpp",
+        "variant": "cpp",
+        "thread": "cpp"
     }
 }

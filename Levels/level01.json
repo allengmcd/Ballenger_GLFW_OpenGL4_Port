@@ -1,212 +1,44 @@
-
 {
-    "Level": {
+  "Level": {
+    "stages": [
+      {
         "name": "Ballenger",
         "id": "1",
         "data": {
-			"skybox": "skybox_name",
-			"terrain": {
-				"heightmap": "terrain01.jpg",
-				"horizontal_texture": "grass.png",
-				"vertical_texture": "rock.png"
-			},
-			"lava": {
-				"bottom": 0,
-				"top": 0,
-				"interval": 0
-			},
-			"respawnPoints": 
-			[
-				{
-					"id": 1,
-					"coord": {
-						"x": 512,
-						"y": 512
-					}
-				},
-				{
-					"id": 2,
-					"coord": {
-						"x": 256,
-						"y": 160
-					}
-				},
-				{
-					"id": 3,
-					"coord": {
-						"x": 840,
-						"y": 184
-					}
-				},
-				{
-					"id": 4,
-					"coord": {
-						"x": 552,
-						"y": 760
-					}
-				},
-				{
-					"id": 5,
-					"coord": {
-						"x": 791,
-						"y": 850
-					}
-				},
-				{
-					"id": 6,
-					"coord": {
-						"x": 152,
-						"y": 832
-					}
-				},
-				{
-					"id": 7,
-					"coord": {
-						"x": 448,
-						"y": 944
-					}
-				},
-				{
-					"id": 8,
-					"coord": {
-						"x": 816,
-						"y": 816
-					}
-				}
-			],
-			"keys": 
-			[
-				{
-					"id": 1,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 883,
-						"y": 141
-					}
-				},
-				{
-					"id": 2,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 345,
-						"y": 229
-					}
-				},
-				{
-					"id": 3,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 268,
-						"y": 860
-					}
-				},
-				{
-					"id": 4,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 780,
-						"y": 858
-					}
-				},
-				{
-					"id": 5,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 265,
-						"y": 487
-					}
-				}
-			],
-			"columns": 
-			[
-				{
-					"id": 1,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 530,
-						"y": 520
-					}
-				},
-				{
-					"id": 2,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 526,
-						"y": 504
-					}
-				},
-				{
-					"id": 3,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 512,
-						"y": 496
-					}
-				},
-				{
-					"id": 4,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 498,
-						"y": 504
-					}
-				},
-				{
-					"id": 5,
-					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0
-					},
-					"coord": {
-						"x": 494,
-						"y": 520
-					}
-				}
-			],
-			"portal": {
-				"coord": {
-					"x": 512,
-					"y": 544
-				}
-			}
-		}
-    }
+          "skybox": "skybox_name",
+          "terrain": {
+            "heightmap": "Textures/terrain01.jpg",
+            "horizontal_texture": "Textures/grass.png",
+            "vertical_texture": "Textures/rock.png"
+          },
+          "lava": { "bottom": 0, "top": 0, "interval": 0 },
+          "respawnPoints": [
+            { "id": 1, "coord": { "x": 512, "y": 512 } },
+            { "id": 2, "coord": { "x": 256, "y": 160 } },
+            { "id": 3, "coord": { "x": 840, "y": 184 } },
+            { "id": 4, "coord": { "x": 552, "y": 760 } },
+            { "id": 5, "coord": { "x": 791, "y": 850 } },
+            { "id": 6, "coord": { "x": 152, "y": 832 } },
+            { "id": 7, "coord": { "x": 448, "y": 944 } },
+            { "id": 8, "coord": { "x": 816, "y": 816 } }
+          ],
+          "keys": [
+            { "id": 1, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 883, "y": 141 } },
+            { "id": 2, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 345, "y": 229 } },
+            { "id": 3, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 268, "y": 860 } },
+            { "id": 4, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 780, "y": 858 } },
+            { "id": 5, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 265, "y": 487 } }
+          ],
+          "columns": [
+            { "id": 1, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 530, "y": 520 } },
+            { "id": 2, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 526, "y": 504 } },
+            { "id": 3, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 512, "y": 496 } },
+            { "id": 4, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 498, "y": 504 } },
+            { "id": 5, "color": { "r": 0, "g": 0, "b": 0 }, "coord": { "x": 494, "y": 520 } }
+          ],
+          "portal": { "coord": { "x": 512, "y": 544 } }
+        }
+      }
+    ]
+  }
 }
-

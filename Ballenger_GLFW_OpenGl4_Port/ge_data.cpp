@@ -27,12 +27,12 @@ bool Data::LoadImage(int img, const char *filename, int type)
 	return true;
 }
 
-bool Data::Load(LevelConfig levelConfig)
+bool Data::Load(LevelFile::Stage currentStage)
 {
 	int res;
 
-	const char* grass = levelConfig.CurrentLevel.get_data().get_terrain().get_horizontal_texture().c_str();
-	const char* rock = levelConfig.CurrentLevel.get_data().get_terrain().get_vertical_texture().c_str();
+	const char* grass = currentStage.get_data().get_terrain().get_horizontal_texture().c_str();
+	const char* rock = currentStage.get_data().get_terrain().get_vertical_texture().c_str();
 	char lava[] = "Textures/lava.png\0";
 	char skybox[] = "Textures/skybox.png\0";
 	char player[] = "Textures/player.png\0";
@@ -52,6 +52,7 @@ bool Data::Load(LevelConfig levelConfig)
 	char skybox_bottom[] = "Textures/skybox/bottom.jpg\0";
 	char skybox_front[] = "Textures/skybox/front.jpg\0";
 	char skybox_back[] = "Textures/skybox/back.jpg\0";
+
 
 	res = LoadImage(IMG_GRASS,grass,GL_RGBA);
 	if(!res) return false;

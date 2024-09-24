@@ -225,10 +225,10 @@ namespace LevelFile {
         void set_portal(const Portal & value) { this->portal = value; }
     };
 
-    class Level {
+    class Stage {
         public:
-        Level() = default;
-        virtual ~Level() = default;
+        Stage() = default;
+        virtual ~Stage() = default;
 
         private:
         std::string name;
@@ -249,10 +249,24 @@ namespace LevelFile {
         void set_data(const Data & value) { this->data = value; }
     };
 
-    class Welcome {
+    class Level {
         public:
-        Welcome() = default;
-        virtual ~Welcome() = default;
+        Level() = default;
+        virtual ~Level() = default;
+
+        private:
+        std::vector<Stage> stages;
+
+        public:
+        const std::vector<Stage> & get_stages() const { return stages; }
+        std::vector<Stage> & get_mutable_stages() { return stages; }
+        void set_stages(const std::vector<Stage> & value) { this->stages = value; }
+    };
+
+    class BallengerLevelConfig {
+        public:
+        BallengerLevelConfig() = default;
+        virtual ~BallengerLevelConfig() = default;
 
         private:
         Level level;
@@ -289,11 +303,14 @@ namespace LevelFile {
     void from_json(const json & j, Data & x);
     void to_json(json & j, const Data & x);
 
+    void from_json(const json & j, Stage & x);
+    void to_json(json & j, const Stage & x);
+
     void from_json(const json & j, Level & x);
     void to_json(json & j, const Level & x);
 
-    void from_json(const json & j, Welcome & x);
-    void to_json(json & j, const Welcome & x);
+    void from_json(const json & j, BallengerLevelConfig & x);
+    void to_json(json & j, const BallengerLevelConfig & x);
 
     inline void from_json(const json & j, Color& x) {
         x.set_r(j.at("r").get<int64_t>());
@@ -399,24 +416,33 @@ namespace LevelFile {
         j["portal"] = x.get_portal();
     }
 
-    inline void from_json(const json & j, Level& x) {
+    inline void from_json(const json & j, Stage& x) {
         x.set_name(j.at("name").get<std::string>());
         x.set_id(j.at("id").get<std::string>());
         x.set_data(j.at("data").get<Data>());
     }
 
-    inline void to_json(json & j, const Level & x) {
+    inline void to_json(json & j, const Stage & x) {
         j = json::object();
         j["name"] = x.get_name();
         j["id"] = x.get_id();
         j["data"] = x.get_data();
     }
 
-    inline void from_json(const json & j, Welcome& x) {
+    inline void from_json(const json & j, Level& x) {
+        x.set_stages(j.at("stages").get<std::vector<Stage>>());
+    }
+
+    inline void to_json(json & j, const Level & x) {
+        j = json::object();
+        j["stages"] = x.get_stages();
+    }
+
+    inline void from_json(const json & j, BallengerLevelConfig& x) {
         x.set_level(j.at("Level").get<Level>());
     }
 
-    inline void to_json(json & j, const Welcome & x) {
+    inline void to_json(json & j, const BallengerLevelConfig & x) {
         j = json::object();
         j["Level"] = x.get_level();
     }

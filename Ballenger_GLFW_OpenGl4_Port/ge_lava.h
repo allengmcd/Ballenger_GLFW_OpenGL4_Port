@@ -16,7 +16,7 @@ class Lava
 public:
 	Lava();
 	~Lava();
-	void Load(float terrain_size, Shader *Shader, Data *Data);
+	void Load(float terrain_size, float max_height, float min_height, float flow_speed, Shader *Shader, Data *Data);
 	void Draw(Camera *camera);
 	float GetHeight();
 	float GetHeightMax();
@@ -24,7 +24,7 @@ public:
 
 private:
 	int id_Lava;
-	float height,ang;
+	float height,ang, max_height, min_height, flow_speed;
 	bool up;
     GLfloat lavaBuffer[(3+2)*4];
 	GLuint lavaIndices[32];//[6];

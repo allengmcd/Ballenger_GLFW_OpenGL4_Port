@@ -33,7 +33,7 @@ public:
 
 	int  GetID(int img);
 	void GetSize(int img, int *w, int *h);
-	bool Load(LevelConfig levelConfig);
+	bool Load(LevelFile::Stage currentStage);
 
 private:
 	Texture textures[NUM_TEX];
