@@ -7,7 +7,7 @@
         "data": {
           "skybox": "skybox_name",
           "terrain": {
-            "heightmap": "Textures/terrain01.jpg",
+            "heightmap": "Levels/terrain01.jpg",
             "horizontal_texture": "Textures/grass.png",
             "vertical_texture": "Textures/rock.png"
           },

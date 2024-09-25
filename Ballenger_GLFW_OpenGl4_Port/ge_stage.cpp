@@ -31,8 +31,8 @@ bool Stage::Init(LevelFile::Stage currentStage, GLFWwindow *newWindow)
 	//levelConfig.LoadLevel(1);
 	
 
-	// //Sound initialization
-	//sound.Load();
+	//Sound initialization
+	sound.Load();
 
 	//Texture initialization
 	data.Load(currentStage);
@@ -155,8 +155,7 @@ bool Stage::Init(LevelFile::Stage currentStage, GLFWwindow *newWindow)
 	// energyBeacon = *energyBeaconTemp;
 	//energyBeacon = energyBeaconTemp;
 
-	//sound.Play(SOUND_AMBIENT); //TODO: this causes segfault
-	//sound.PlayBounce(.25f); //TODO: So does this
+	sound.Play(SOUND_AMBIENT); 
 
 	//return res;
 	return 1;
@@ -297,7 +296,7 @@ bool Stage::Process()
 			if((player.GetY()-(2*RADIUS)) < terrain.GetHeight(player.GetX(),player.GetZ())+0.01f)
 			{
 				player.SetVY(PLAYER_JUMP_SPEED);
-				//Sound.PlayBounce(1.0f);
+				sound.PlayBounce(1.0f);
 			}
 		}
 
@@ -311,7 +310,7 @@ bool Stage::Process()
 			player.SetVel(0.0f,0.0f,0.0f);
 			pickedkey_id = -1;
 			state = STATE_LIVELOSS;
-			//Sound.Play(SOUND_SWISH);
+			sound.Play(SOUND_SWISH);
 		}
 
 		Coord P; P.x = player.GetX(); P.y = player.GetY(); P.z = player.GetZ();
@@ -324,7 +323,7 @@ bool Stage::Process()
 			Coord RP; RP.x = respawn_points[i].GetX(); RP.y = respawn_points[i].GetY(); RP.z = respawn_points[i].GetZ(); 
 			if( sqrt((P.x-RP.x)*(P.x-RP.x) + (P.y-RP.y)*(P.y-RP.y) + (P.z-RP.z)*(P.z-RP.z)) <= RADIUS+CIRCLE_RADIUS)
 			{
-				//if(respawn_id != i) Sound.Play(SOUND_SWISH);
+				if(respawn_id != i) sound.Play(SOUND_SWISH);
 				respawn_id = i;
 			}
 		}
@@ -340,7 +339,7 @@ bool Stage::Process()
 					if( sqrt((P.x-K.x)*(P.x-K.x) + (P.y-K.y)*(P.y-K.y) + (P.z-K.z)*(P.z-K.z)) <= RADIUS*2)
 					{
 						pickedkey_id = i;
-						//Sound.Play(SOUND_PICKUP);
+						sound.Play(SOUND_PICKUP);
 					}
 				}
 			}
@@ -351,19 +350,19 @@ bool Stage::Process()
 		{
 			if( columns[pickedkey_id].InsideGatheringArea(P.x,P.y,P.z) )
 			{
-				//Sound.Play(SOUND_UNLOCK);
-				//Sound.Play(SOUND_ENERGYFLOW);
+				sound.Play(SOUND_UNLOCK);
+				sound.Play(SOUND_ENERGYFLOW);
 				target_keys[pickedkey_id].Deploy();
 				pickedkey_id = -1;
 				if(respawn_id)
 				{
-					//Sound.Play(SOUND_SWISH);
+					sound.Play(SOUND_SWISH);
 					respawn_id = 0;
 				}
 				bool all_keys_deployed = true;
 				for(unsigned int i=0; all_keys_deployed && i<target_keys.size(); i++) all_keys_deployed = target_keys[i].IsDeployed();
 				portal_activated = all_keys_deployed;
-				//if(portal_activated) Sound.Play(SOUND_WARP);
+				if(portal_activated) sound.Play(SOUND_WARP);
 			}
 		}
 
@@ -378,8 +377,8 @@ bool Stage::Process()
 		}
 	}
 
-	// //limpio buffer de sonidos
-	// Sound.Update();
+	//limpio buffer de sonidos
+	sound.Update();
 
 	return res;
 }
@@ -536,13 +535,13 @@ void Stage::Render()
 	{
 		if( columns[pickedkey_id].InsideGatheringArea(P.x,P.y,P.z) )
 		{
-			//Sound.Play(SOUND_UNLOCK);
-			//Sound.Play(SOUND_ENERGYFLOW);
+			sound.Play(SOUND_UNLOCK);
+			sound.Play(SOUND_ENERGYFLOW);
 			target_keys[pickedkey_id].Deploy();
 			pickedkey_id = -1;
 			if(respawn_id)
 			{
-				//Sound.Play(SOUND_SWISH);
+				sound.Play(SOUND_SWISH);
 				respawn_id = 0;
 			}
 			bool all_keys_deployed = true;

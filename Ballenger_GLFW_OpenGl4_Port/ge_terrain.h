@@ -19,7 +19,7 @@ class Terrain
 public:
 	Terrain();
 	~Terrain();
-	void  Load(int level, Shader *shader, Data *data);
+	void  Load(LevelFile::Stage currentStage, Shader *shader, Data *data);
 	void  Draw(Camera *camera);
 	void  DrawNormals();
 	float GetHeight(float x,float z);

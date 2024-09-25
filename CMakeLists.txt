@@ -20,6 +20,7 @@ file(GLOB LEVELS
       "Levels/*.raw"
       "Levels/*.txt"
       "Levels/*.psd"
+      "Levels/*.jpg"
       "Levels/*.json"
 )
 

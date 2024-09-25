@@ -23,6 +23,8 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET Ballenger_GLFW_OpenGl4_Port PROPERTY CXX_STANDARD 20)
 endif()
 
+
+
 if(WIN32)
 find_package(glew CONFIG REQUIRED)
 endif()
@@ -51,6 +53,12 @@ execute_process(COMMAND Magick++-config --ldflags
   OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-target_link_libraries(Ballenger_GLFW_OpenGl4_Port PRIVATE glfw ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES} ${ImageMagick_LIBRARIES} nlohmann_json::nlohmann_json)
+target_link_libraries(Ballenger_GLFW_OpenGl4_Port PRIVATE 
+  glfw 
+  ${GLEW_LIBRARIES} 
+  ${OPENGL_LIBRARIES} 
+  ${ImageMagick_LIBRARIES} 
+  nlohmann_json::nlohmann_json 
+  /home/allenmcdermott/Documents/Development/Ballenger/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/libfmod.so)
 
 # TODO: Add tests and install targets if needed.

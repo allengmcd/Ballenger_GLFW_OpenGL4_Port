@@ -12,7 +12,7 @@ void Scene::LoadLevel(LevelFile::Stage currentStage, Terrain *Terrain, Shader *S
 	float flow_speed = (float)currentStage.get_data().get_lava().get_interval();
 
 	Data->Load(currentStage);
-	Terrain->Load(level, Shader, Data);
+	Terrain->Load(currentStage, Shader, Data);
 
 	std::cout << "Initializing skybox..." << std::endl;
 	skybox.Load(Shader);

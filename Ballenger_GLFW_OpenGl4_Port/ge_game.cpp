@@ -61,7 +61,7 @@ bool Game::Loop()
 void Game::ReadKeyboard(unsigned char key, int x, int y, bool press)
 {
 	if(key >= 'A' && key <= 'Z') key += 32;
-	keys[key] = press;
+	activeStage.keys[key] = press;
 }
 
 void Game::ReadMouseMotion(int x, int y)

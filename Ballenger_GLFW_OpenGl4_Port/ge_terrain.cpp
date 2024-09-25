@@ -107,36 +107,36 @@ Vector Terrain::SetNormalPerVertex(int x,float y,int z)
 	return N;
 }
 
-void Terrain::Load(int level, Shader *Shader, Data *Data)
+void Terrain::Load(LevelFile::Stage currentStage, Shader *Shader, Data *Data)
 {
 	Magick::InitializeMagick("");
 
 	// Magick::Image level_map;
 	data = Data;
 	shader = Shader;
-	std::cout << "Loading Terrain, level: " << level << std::endl;
+	std::cout << "Loading Terrain, level: " << currentStage.get_id() << std::endl;
 
 	triangles.clear();
 
-	char file[32];
-	if(level<10) sprintf(file,"Levels/terrain0%d.raw",level);
-	else		 sprintf(file,"Levels/terrain%d.raw",level);
-	FILE *pFile = fopen(file, "rb");
-	std::cout << "Terrain fread" << std::endl;
+	//char file[32];
+	const char* terrainFileName = currentStage.get_data().get_terrain().get_heightmap().c_str();
+	// sprintf(file, terrainFileName);
+	// FILE *pFile = fopen(file, "rb");
+	// std::cout << "Terrain fread" << std::endl;
 
-	int terrainReturnSize = fread(heightmap,TERRAIN_SIZE * TERRAIN_SIZE,sizeof(GLubyte),pFile); 
+	// int terrainReturnSize = fread(heightmap,TERRAIN_SIZE * TERRAIN_SIZE,sizeof(GLubyte),pFile); 
 	
 	
-	std::cout << "Terrain check, terrainReturnSize: " << terrainReturnSize << std::endl;
-	if(terrainReturnSize != (TERRAIN_SIZE * TERRAIN_SIZE))
-	{
-		std::cout << "An error occurred while reading in terrain file" << std::endl;
-	}
+	// std::cout << "Terrain check, terrainReturnSize: " << terrainReturnSize << std::endl;
+	// if(terrainReturnSize != (TERRAIN_SIZE * TERRAIN_SIZE))
+	// {
+	// 	std::cout << "An error occurred while reading in terrain file" << std::endl;
+	// }
 
-	std::cout << "Terrain fclose" << std::endl;
-	fclose(pFile);
+	// std::cout << "Terrain fclose" << std::endl;
+	// fclose(pFile);
 
-	std::cout << "fclose Terrain finish" << std::endl;
+	// std::cout << "fclose Terrain finish" << std::endl;
 
 
 
@@ -145,7 +145,8 @@ void Terrain::Load(int level, Shader *Shader, Data *Data)
 
 	Magick::Image level_map;
     // Read a file into image object 
-    level_map.read( "../../../../Levels/level03.jpg" );
+    level_map.read(terrainFileName);
+    //level_map.read( "Levels/level03.jpg" );
 
 	int map_width = level_map.columns();
 	int map_height = level_map.rows();

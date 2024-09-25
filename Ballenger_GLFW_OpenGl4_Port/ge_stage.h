@@ -10,6 +10,7 @@
 #include "ge_key.h"
 #include "ge_player.h"
 #include "ge_portal.h"
+#include "ge_sound.h"
 #include "ge_respawnPoint.h"
 #include "ge_playerCamera.h"
 #include "ge_levelConfig.h"
@@ -99,6 +100,7 @@ private:
 	Model model;
 	GLFWwindow *window;
 	Key key;
+	Sound sound;
 	EnergyBeacon energyBeacon;
 	//LevelConfig levelConfig;
 
