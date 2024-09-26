@@ -16,7 +16,7 @@ bool Stage::Init(LevelFile::Stage currentStage, GLFWwindow *newWindow)
 	window = newWindow;
 	bool res = true;
 	noclip = false;
-	portal_activated = false;
+	portal_activated = true;
 	time = ang = 0.0f;
 	noclipSpeedF = 1.0f; 
 	state = STATE_RUN;
@@ -556,8 +556,8 @@ void Stage::Render()
 	//draw respawn points
 	for(unsigned int i=0; i<respawn_points.size(); i++)
 	{
-		if(i==respawn_id) respawn_points[i].Draw(data.GetID(IMG_CIRCLE_ON),true,&shader,camera);
-		else respawn_points[i].Draw(data.GetID(IMG_CIRCLE_OFF),false,&shader,camera);
+		//if(i==respawn_id) respawn_points[i].Draw(data.GetID(IMG_CIRCLE_ON),true,&shader,camera);
+		//else respawn_points[i].Draw(data.GetID(IMG_CIRCLE_OFF),false,&shader,camera);
 	}
 
 	//draw portal
@@ -639,4 +639,13 @@ void Stage::Render()
 	
 
 	glfwSwapBuffers(window);
+}
+
+
+
+void Stage::Clear()
+{
+	respawn_points.clear();
+	target_keys.clear();
+	columns.clear();
 }

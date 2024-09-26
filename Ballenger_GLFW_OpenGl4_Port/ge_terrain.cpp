@@ -160,6 +160,9 @@ void Terrain::Load(LevelFile::Stage currentStage, Shader *Shader, Data *Data)
 			Magick::ColorRGB pixel_color = level_map.pixelColor( column, row );
 
 			float greyscale = (pixel_color.red() + pixel_color.green() + pixel_color.blue())/3;
+
+			//std::cout << greyscale << " = " << pixel_color.red() << " " << pixel_color.green() << " " << pixel_color.blue() << std::endl;
+
 			heightmap2[row * TERRAIN_SIZE + column] = greyscale*255;
 		}
 	}

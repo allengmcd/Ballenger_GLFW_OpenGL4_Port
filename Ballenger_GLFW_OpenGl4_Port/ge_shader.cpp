@@ -28,26 +28,26 @@ void Shader::Load()
 {
 	GLuint shader;
 
-	char complex[] = "../../../../Shaders/complex.vert\0";
+	char complex[] = "Shaders/complex.vert\0";
 	//char explosion[] = "Shaders/explosion.geom\0";
-	char lavaglow_frag[] = "../../../../Shaders/lavaglow.frag\0";
-	char lavaglow_vert[] = "../../../../Shaders/lavaglow.vert\0";
-	char lightball[] = "../../../../Shaders/lightball.frag\0";
-	char lightbeam[] = "../../../../Shaders/lightbeam.frag\0";
-	char normalmap[] = "../../../../Shaders/normalmap.frag\0";
-	char simple[] = "../../../../Shaders/simple.vert\0";
-	char terrain_frag[] = "../../../../Shaders/terrain.frag\0";
-	char terrain_vert[] = "../../../../Shaders/terrain.vert\0";
-	char skybox_vert[] = "../../../../Shaders/skybox.vert\0";
-	char skybox_frag[] = "../../../../Shaders/skybox.frag\0";
-	char player_vert[] = "../../../../Shaders/player.vert\0";
-	char player_frag[] = "../../../../Shaders/player.frag\0";
-	char key_vert[] = "../../../../Shaders/key.vert\0";
-	char key_frag[] = "../../../../Shaders/key.frag\0";
-	char respawnPoint_vert[] = "../../../../Shaders/respawnPoint.vert\0";
-	char respawnPoint_frag[] = "../../../../Shaders/respawnPoint.frag\0";
-	char energyBeacon_vert[] = "../../../../Shaders/energyBeacon.vert\0";
-	char energyBeacon_frag[] = "../../../../Shaders/energyBeacon.frag\0";
+	char lavaglow_frag[] = "Shaders/lavaglow.frag\0";
+	char lavaglow_vert[] = "Shaders/lavaglow.vert\0";
+	char lightball[] = "Shaders/lightball.frag\0";
+	char lightbeam[] = "Shaders/lightbeam.frag\0";
+	char normalmap[] = "Shaders/normalmap.frag\0";
+	char simple[] = "Shaders/simple.vert\0";
+	char terrain_frag[] = "Shaders/terrain.frag\0";
+	char terrain_vert[] = "Shaders/terrain.vert\0";
+	char skybox_vert[] = "Shaders/skybox.vert\0";
+	char skybox_frag[] = "Shaders/skybox.frag\0";
+	char player_vert[] = "Shaders/player.vert\0";
+	char player_frag[] = "Shaders/player.frag\0";
+	char key_vert[] = "Shaders/key.vert\0";
+	char key_frag[] = "Shaders/key.frag\0";
+	char respawnPoint_vert[] = "Shaders/respawnPoint.vert\0";
+	char respawnPoint_frag[] = "Shaders/respawnPoint.frag\0";
+	char energyBeacon_vert[] = "Shaders/energyBeacon.vert\0";
+	char energyBeacon_frag[] = "Shaders/energyBeacon.frag\0";
 	//char textured[] = "Shaders/textured.frag\0";
 	
 	int success;

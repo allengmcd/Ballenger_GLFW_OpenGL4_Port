@@ -192,15 +192,16 @@ void processInput(GLFWwindow *window)
     if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
         game.activeStage.camera->MovementSpeed_Handler(SHIFT_RELEASED, deltaTime);
 
-    if(glfwGetKey(window, GLFW_KEY_F10) == GLFW_PRESS)
+    if(glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
     {
         if(!noClipPressed)
         {
             game.noclip = !game.noclip;
+            game.activeStage.noclip = !game.activeStage.noclip;
             noClipPressed = true;
         }
     }
-    if(glfwGetKey(window, GLFW_KEY_F10) == GLFW_RELEASE)
+    if(glfwGetKey(window, GLFW_KEY_K) == GLFW_RELEASE)
     {
         noClipPressed = false;
     }

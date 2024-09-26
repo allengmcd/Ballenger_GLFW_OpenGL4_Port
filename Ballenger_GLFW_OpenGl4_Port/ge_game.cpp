@@ -30,26 +30,27 @@ bool Game::Loop()
 	// Process();
 	// Render();
 
-	if(state == STATE_RUN)
+	if(activeStage.state == STATE_RUN)
 	{
 		res = activeStage.Process();
 		if(res) activeStage.Render();
 	}
-	else if(state == STATE_LIVELOSS)
+	else if(activeStage.state == STATE_LIVELOSS)
 	{
 		activeStage.Render();
 		activeStage.player.SetPos(activeStage.respawn_points[activeStage.respawn_id].GetX(),
 			activeStage.respawn_points[activeStage.respawn_id].GetY()+RADIUS,
 			activeStage.respawn_points[activeStage.respawn_id].GetZ());
-		state = STATE_RUN;
+		activeStage.state = STATE_RUN;
 	}
-	else if(state == STATE_ENDGAME)
+	else if(activeStage.state == STATE_ENDGAME)
 	{
 		res=false;
 		currentStage++;
-		state = STATE_INIT;
+		activeStage.state = STATE_INIT;
+		activeStage.Clear();
 	}
-	else if(state == STATE_INIT)
+	else if(activeStage.state == STATE_INIT)
 	{
 		activeStage.Init(stages.at(currentStage), window);
 	}
