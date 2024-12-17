@@ -59,6 +59,6 @@ target_link_libraries(Ballenger_GLFW_OpenGl4_Port PRIVATE
   ${OPENGL_LIBRARIES} 
   ${ImageMagick_LIBRARIES} 
   nlohmann_json::nlohmann_json 
-  /home/allenmcdermott/Documents/Development/Ballenger/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/libfmod.so)
+  /home/allen/Documents/Development/Graphics/Ballenger_GLFW_OpenGL4_Port/Ballenger_GLFW_OpenGl4_Port/libfmod.so)
 
 # TODO: Add tests and install targets if needed.

@@ -63,6 +63,7 @@
         "ratio": "cpp",
         "sstream": "cpp",
         "variant": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "chrono": "cpp"
     }
 }

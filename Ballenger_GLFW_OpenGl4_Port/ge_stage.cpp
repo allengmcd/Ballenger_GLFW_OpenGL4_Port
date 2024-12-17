@@ -366,13 +366,18 @@ bool Stage::Process()
 			}
 		}
 
+		portal_activated = true;
 		//comprueba si el player atraviesa el portal estando activado
 		if(portal_activated)
 		{
 			if( portal.InsidePortal(P.x,P.y,P.z,RADIUS) )
 			{
 				if( (initial_z-portal.GetZ() <= 0.0f && player.GetZ()-portal.GetZ() >= 0.0f) || 
-				    (initial_z-portal.GetZ() >= 0.0f && player.GetZ()-portal.GetZ() <= 0.0f)  ) state = STATE_ENDGAME;
+				    (initial_z-portal.GetZ() >= 0.0f && player.GetZ()-portal.GetZ() <= 0.0f)  ) 
+				{
+					std::cout << "InsidePortal" << std::endl;
+					state = STATE_ENDGAME;
+				}
 			}
 		}
 	}

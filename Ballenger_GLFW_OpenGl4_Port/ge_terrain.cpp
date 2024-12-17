@@ -139,6 +139,7 @@ void Terrain::Load(LevelFile::Stage currentStage, Shader *Shader, Data *Data)
 	// std::cout << "fclose Terrain finish" << std::endl;
 
 
+	std::cout << terrainFileName << std::endl;
 
 	Magick::InitializeMagick("");
 
@@ -146,10 +147,15 @@ void Terrain::Load(LevelFile::Stage currentStage, Shader *Shader, Data *Data)
 	Magick::Image level_map;
     // Read a file into image object 
     level_map.read(terrainFileName);
-    //level_map.read( "Levels/level03.jpg" );
+    //level_map.read( "Levels/terrain02.jpg" );
+	level_map.colorSpace(Magick::sRGBColorspace);
+
 
 	int map_width = level_map.columns();
 	int map_height = level_map.rows();
+
+	std::cout << "map_width: " << map_width << std::endl;
+	std::cout << "map_height: " << map_height << std::endl;
 
 	// get a "pixel cache" for the entire image
 
