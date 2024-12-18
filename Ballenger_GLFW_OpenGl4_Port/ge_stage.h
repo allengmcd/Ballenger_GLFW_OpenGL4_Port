@@ -87,6 +87,8 @@ public:
 	void Reshape(int w, int h);
 	void Render();
 	void ToggleCamera(bool debug_camera_active);
+	//Free
+	void Free();
 
 private:
 	std::vector<Key> target_keys;

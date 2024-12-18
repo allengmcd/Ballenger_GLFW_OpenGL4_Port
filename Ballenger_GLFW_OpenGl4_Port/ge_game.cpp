@@ -16,6 +16,7 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	levelConfig.LoadLevel(1);
 	stages = levelConfig.CurrentLevel.get_stages();
 	currentStage = 0; // TODO: Make sure that this doesn't crash the program
+	window = newWindow;
 	activeStage.Init(stages.at(currentStage), newWindow);
 	state = STATE_RUN;
 

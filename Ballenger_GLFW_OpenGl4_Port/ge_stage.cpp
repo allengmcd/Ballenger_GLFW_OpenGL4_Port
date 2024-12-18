@@ -523,7 +523,7 @@ void Stage::Render()
 	if(state != STATE_LIVELOSS) lava.Update();
 	playerCamera.Update(player_camera,&terrain, &lava, player.GetX(), player.GetY(), player.GetZ());
 
-	//skybox.Draw(camera);
+	// //skybox.Draw(camera);
 	scene.Draw(&terrain,&shader,camera,&data,&lava);
 
 	
@@ -645,3 +645,13 @@ void Stage::Render()
 
 	glfwSwapBuffers(window);
 }
+
+
+
+
+
+void Stage::Free()
+{
+
+}
+
