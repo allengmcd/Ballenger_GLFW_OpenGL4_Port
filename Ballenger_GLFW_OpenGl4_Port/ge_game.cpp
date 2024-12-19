@@ -23,6 +23,7 @@ bool Game::Init(int lvl, GLFWwindow *newWindow)
 	return 1;
 }
 
+bool first_round = true;
 
 bool Game::Loop()
 {
@@ -35,6 +36,7 @@ bool Game::Loop()
 	{
 		res = activeStage.Process();
 		if(res) activeStage.Render();
+		if(first_round) activeStage.state = STATE_ENDGAME;
 	}
 	else if(activeStage.state == STATE_LIVELOSS)
 	{
@@ -57,6 +59,7 @@ bool Game::Loop()
 		std::cout << stages.size() << std::endl;
 		activeStage.Init(stages.at(currentStage), window);
 		activeStage.state = STATE_RUN;
+		first_round = false;
 	}
 
 	return res;

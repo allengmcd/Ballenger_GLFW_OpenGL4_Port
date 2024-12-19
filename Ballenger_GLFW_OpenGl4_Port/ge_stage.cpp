@@ -74,6 +74,7 @@ bool Stage::Init(LevelFile::Stage currentStage, GLFWwindow *newWindow)
 
 
 	Key key;
+	key.Load();
 	std::vector<LevelFile::Column> key_list = currentStage.get_data().get_keys();
 	for(int i = 0 ; i < key_list.size(); i++)
 	{
@@ -101,6 +102,7 @@ bool Stage::Init(LevelFile::Stage currentStage, GLFWwindow *newWindow)
 
 
 	RespawnPoint rp;
+	rp.Load();
 	std::vector<LevelFile::RespawnPoint> respawnPoint_list = currentStage.get_data().get_respawn_points();
 	for(int i = 0 ; i < respawnPoint_list.size(); i++)
 	{
