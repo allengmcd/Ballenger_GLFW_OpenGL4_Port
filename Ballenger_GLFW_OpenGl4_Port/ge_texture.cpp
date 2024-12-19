@@ -59,3 +59,7 @@ void Texture::GetSize(int *w,int *h)
 	*w = width;
 	*h = height;
 }
+void Texture::Free()
+{
+    glDeleteTextures(1, &id);
+}

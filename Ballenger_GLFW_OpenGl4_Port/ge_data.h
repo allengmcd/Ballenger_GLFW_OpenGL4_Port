@@ -34,6 +34,8 @@ public:
 	int  GetID(int img);
 	void GetSize(int img, int *w, int *h);
 	bool Load(LevelFile::Stage currentStage);
+	void Free();
+	
 
 private:
 	Texture textures[NUM_TEX];

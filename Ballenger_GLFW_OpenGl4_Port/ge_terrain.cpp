@@ -761,3 +761,15 @@ float Terrain::GetSegmentIntersectionLambda(float x,float y,float z, float vx,fl
 	
 	return lowest_lambda;
 }
+
+void Terrain::Free()
+{
+	// Delete VAO
+    glDeleteVertexArrays(1, &terrainVAO);
+
+	// Delete VBO
+    glDeleteBuffers(1, &terrainVBO);
+
+	// Delete EBO
+    glDeleteBuffers(1, &terrainVAO);
+}

@@ -395,3 +395,17 @@ void Shader::Deactivate()
 {
 	glUseProgram(0);
 }
+
+void Shader::Free()
+{
+    glDeleteProgram(programs[PROGRAM_TERRAIN]);
+    glDeleteProgram(programs[PROGRAM_SIMPLE_LIGHTBEAM]);
+    glDeleteProgram(programs[PROGRAM_SIMPLE_LIGHTBALL]);
+    glDeleteProgram(programs[PROGRAM_LAVAGLOW]);
+    glDeleteProgram(programs[PROGRAM_COMPLEX_NORMALMAP]);
+    glDeleteProgram(programs[PROGRAM_SKYBOX]);
+    glDeleteProgram(programs[PROGRAM_PLAYER]);
+    glDeleteProgram(programs[PROGRAM_KEY]);
+    glDeleteProgram(programs[PROGRAM_RESPAWNPOINT]);
+    glDeleteProgram(programs[PROGRAM_ENERGYBEACON]);
+}

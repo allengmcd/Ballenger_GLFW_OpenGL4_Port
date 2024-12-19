@@ -15,6 +15,7 @@ public:
 
 	void LoadLevel(LevelFile::Stage currentStage, Terrain *Terrain, Shader *Shader, Data *Data, Lava *Lava);
 	void Draw(Terrain *Terrain, Shader *Shader, Camera *Camera, Data *Data, Lava *Lava);
+	void Free();
 
 private:
 	Skybox skybox;

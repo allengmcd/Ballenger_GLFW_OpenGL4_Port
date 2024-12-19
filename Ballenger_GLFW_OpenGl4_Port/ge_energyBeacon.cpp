@@ -92,15 +92,14 @@ void EnergyBeacon::Load(unsigned int sectorCount, float radius, float height)
 
 
     indexCount = indices.size();
-	unsigned int vbo, ebo, vao;
     glGenVertexArrays(1, &beaconVAO);
-	glGenBuffers(1, &vbo);
-	glGenBuffers(1, &ebo);
+	glGenBuffers(1, &beaconVBO);
+	glGenBuffers(1, &beaconEBO);
 
     glBindVertexArray(beaconVAO);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, beaconVBO);
 	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, beaconEBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 	unsigned int stride = (3 + 2 + 3) * sizeof(float);
 	glEnableVertexAttribArray(0);
@@ -173,4 +172,15 @@ void EnergyBeacon::SetEnergyBeacon(float posx, float posy, float posz, float ang
 	y = posy;
 	z = posz;
 	yaw = ang;
+}
+void EnergyBeacon::Free()
+{
+    // Deleting VAO
+    glDeleteVertexArrays(1, &beaconVAO);
+
+    // Deleting VBO
+    glDeleteBuffers(1, &beaconVBO);
+
+    // Deleting EBO
+    glDeleteBuffers(1, &beaconEBO);
 }

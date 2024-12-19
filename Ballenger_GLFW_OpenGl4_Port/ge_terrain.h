@@ -25,6 +25,7 @@ public:
 	float GetHeight(float x,float z);
 	std::vector<Vector> GetCollisionNormals(Coord &center, float radius);
 	float GetSegmentIntersectionLambda(float x,float y,float z, float vx,float vy,float vz, float dist);
+	void Free();
 
 private:
 	Shader *shader;

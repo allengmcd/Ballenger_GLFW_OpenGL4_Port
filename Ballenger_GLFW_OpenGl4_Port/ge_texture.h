@@ -13,6 +13,7 @@ public:
 			  int magf = GL_LINEAR_MIPMAP_LINEAR,int minf = GL_LINEAR,int mipmap = 0);
 	int  GetID();
 	void GetSize(int *w,int *h);
+	void Free();
 
 private:
 	GLuint id;

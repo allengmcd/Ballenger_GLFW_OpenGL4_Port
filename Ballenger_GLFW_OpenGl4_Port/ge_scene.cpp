@@ -25,3 +25,8 @@ void Scene::Draw(Terrain *Terrain, Shader *Shader, Camera *Camera, Data *Data, L
 	skybox.Draw(Camera);
 	Lava->Draw(Camera);
 }
+
+void Scene::Free()
+{
+	skybox.Free();
+}

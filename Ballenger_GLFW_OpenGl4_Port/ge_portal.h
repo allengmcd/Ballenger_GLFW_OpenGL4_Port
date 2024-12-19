@@ -21,6 +21,7 @@ public:
 	float GetZ();
 	float GetReceptorX(int i);
 	float GetReceptorY(int i);
+	void Free();
 
 private:
 	float x,y,z;

@@ -20,6 +20,7 @@ public:
 	float GetX();
     float GetY();
     float GetZ();
+	void Free();
 
 private:
 	float x,y,z;

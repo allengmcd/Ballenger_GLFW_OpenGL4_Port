@@ -54,6 +54,7 @@ bool Game::Loop()
 	}
 	else if(activeStage.state == STATE_INIT)
 	{
+		activeStage.Free();
 		Stage *tempStage = new Stage();
 		activeStage = *tempStage;
 		std::cout << stages.size() << std::endl;

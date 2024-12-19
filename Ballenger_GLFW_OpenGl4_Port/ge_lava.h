@@ -21,6 +21,7 @@ public:
 	float GetHeight();
 	float GetHeightMax();
 	void Update();
+	void Free();
 
 private:
 	int id_Lava;

@@ -12,6 +12,7 @@ public:
 	~Skybox();
 	void Load(Shader *Shader);
 	void Draw(Camera *Camera);
+    void Free();
     unsigned int LoadCubemap(std::vector<std::string> faces);
 
 private:

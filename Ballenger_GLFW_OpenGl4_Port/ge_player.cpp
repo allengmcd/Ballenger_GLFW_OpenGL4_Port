@@ -10,10 +10,8 @@ void Player::Load()
 {
 
 	glGenVertexArrays(1, &playerVAO);
-
-	unsigned int vbo, ebo;
-	glGenBuffers(1, &vbo);
-	glGenBuffers(1, &ebo);
+	glGenBuffers(1, &playerVBO);
+	glGenBuffers(1, &playerEBO);
 
 	std::vector<glm::vec3> positions;
 	std::vector<glm::vec2> uv;
@@ -81,9 +79,9 @@ void Player::Load()
 		}
 	}
 	glBindVertexArray(playerVAO);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, playerVBO);
 	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, playerEBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 	unsigned int stride = (3 + 2 + 3) * sizeof(float);
 	glEnableVertexAttribArray(0);
@@ -141,46 +139,21 @@ void Player::Draw(Data *data, Camera *camera, Lava *lava, Shader *shader)
     glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
 
 	glBindVertexArray(0);
-	// glPushMatrix();
-	// glTranslatef(GetX(),GetY(),GetZ());
-
-	// //rotacion por movimiento
-	// if(cos(GetYaw()*(PI/180)) >= 0.0f) glRotatef(GetPitch(), cos(GetYaw()*(PI/180)),0.0,-sin(GetYaw()*(PI/180)) );
-	// else glRotatef(GetPitch(), -cos(GetYaw()*(PI/180)),0.0,sin(GetYaw()*(PI/180)) );
-
-	// if(Camera->GetState() != STATE_FPS)
-	// {
-	// 	glEnable(GL_TEXTURE_2D);
-	// 	glActiveTexture(GL_TEXTURE0);
-	// 	glBindTexture(GL_TEXTURE_2D,Data->GetID(IMG_PLAYER));
-	// 	glActiveTexture(GL_TEXTURE1);
-	// 	glBindTexture(GL_TEXTURE_2D,Data->GetID(IMG_PLAYER_NMAP));
-	// 	glDisable(GL_TEXTURE_2D);
-	// 	glActiveTexture(GL_TEXTURE0);
-
-	// 	glEnable(GL_BLEND);
-	// 	GLUquadricObj *q = gluNewQuadric();
-	// 	gluQuadricTexture(q,true);
-
-	// 	Shader->Activate(PROGRAM_LAVAGLOW);
-	// 	Shader->SetUniform(colorMap_name, 0);
-	// 	Shader->SetUniform(normalMap_name, 1);
-	// 	Shader->SetUniform(invRadius_name, 0.0f);
-	// 	if(fade) Shader->SetUniform(alpha_name, Camera->GetDistance()/3.0f);
-	// 	else Shader->SetUniform(alpha_name, 1.0f);
-	// 	Shader->SetUniform(lava_height_name, Lava->GetHeight());
-	// 	Shader->SetUniform(posy_name, GetY()-RADIUS);
-	// 	gluSphere(q,RADIUS,16,16);
-	// 	Shader->Deactivate();
-
-	// 	gluDeleteQuadric(q);
-	// 	glDisable(GL_BLEND);
-	// }
-
-	// glPopMatrix();
 }
 
 void Player::SetFade(bool b)
 {
 	fade = b;
+}
+
+void Player::Free()
+{
+	// Delete VAO
+    glDeleteVertexArrays(1, &playerVAO);
+
+	// Delete VBO
+    glDeleteBuffers(1, &playerVBO);
+
+	// Delete EBO
+    glDeleteBuffers(1, &playerEBO);
 }

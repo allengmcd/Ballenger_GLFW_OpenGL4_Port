@@ -3,7 +3,7 @@
 Model::Model(){}
 Model::~Model(){}
 
-int Model::GetDisplayList(char* path, unsigned int vertices_key)
+void Model::GetDisplayList(char* path, unsigned int vertices_key)
 {
 	struct Coord { float x,y,z; };
 
@@ -91,7 +91,7 @@ int Model::GetDisplayList(char* path, unsigned int vertices_key)
 	if(err != 1)
 	{
 		std::cout << "fscanf error loading model..." << std::endl;
-		return -1;
+		return;
 	}
 
 	int modeBufferSize = 0;
@@ -214,16 +214,15 @@ int Model::GetDisplayList(char* path, unsigned int vertices_key)
 
     unsigned int modelVBO, modelVAO, modelEBO;
 
-	glGenVertexArrays(1, &playerVAO);
+	glGenVertexArrays(1, &modelVAO);
     glGenBuffers(1, &modelVBO);
     glGenBuffers(1, &modelEBO);
 
-    glBindVertexArray(playerVAO);
+    glBindVertexArray(modelVAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, modelVBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*modeBufferSize, modelBuffer, GL_STATIC_DRAW);
 
-    //glBindVertexArray(modelVAO);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(1);
@@ -231,9 +230,11 @@ int Model::GetDisplayList(char* path, unsigned int vertices_key)
     glEnableVertexAttribArray(2);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	
-	free(modelBuffer);
+	modelsVAO[vertices_key] = modelVAO;
+	modelsVBO[vertices_key] = modelVBO; 
+	modelsEBO[vertices_key] = modelEBO; 
 
-	return playerVAO;
+	free(modelBuffer);
 }
 
 
@@ -244,9 +245,9 @@ void Model::Load(Shader *Shader, Data *Data)
 	char modelPortal[] = "Models/portal.obj\0";
 	char modelColumn[] = "Models/column.obj\0";
 
-	models[MODEL_KEY] = GetDisplayList(modelKey, MODEL_KEY);
-	models[MODEL_PORTAL] = GetDisplayList(modelPortal, MODEL_PORTAL);
-	models[MODEL_COLUMN] = GetDisplayList(modelColumn, MODEL_COLUMN);
+	GetDisplayList(modelKey, MODEL_KEY);
+	GetDisplayList(modelPortal, MODEL_PORTAL);
+	GetDisplayList(modelColumn, MODEL_COLUMN);
 }
 
 
@@ -254,11 +255,29 @@ void Model::Draw(int model_id)
 {
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	//glEnable(GL_PROGRAM_POINT_SIZE);
-	glBindVertexArray(models[model_id]);
+	glBindVertexArray(modelsVAO[model_id]);
 
 	glDrawArrays(GL_TRIANGLES, 0, modelsVertices[model_id]);
 	//glDrawArrays(GL_POINTS, 0, super);
 
     //glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
+}
+
+void Model::Free()
+{
+	// Delete VAOs
+    glDeleteVertexArrays(1, &modelsVAO[MODEL_KEY]);
+    glDeleteVertexArrays(1, &modelsVAO[MODEL_PORTAL]);
+    glDeleteVertexArrays(1, &modelsVAO[MODEL_COLUMN]);
+
+	// Delete VBOs
+    glDeleteBuffers(1, &modelsVBO[MODEL_KEY]);
+    glDeleteBuffers(1, &modelsVBO[MODEL_PORTAL]);
+    glDeleteBuffers(1, &modelsVBO[MODEL_COLUMN]);
+
+	// Delete EBOs
+    glDeleteBuffers(1, &modelsEBO[MODEL_KEY]);
+    glDeleteBuffers(1, &modelsEBO[MODEL_PORTAL]);
+    glDeleteBuffers(1, &modelsEBO[MODEL_COLUMN]);
 }

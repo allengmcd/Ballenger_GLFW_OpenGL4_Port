@@ -87,3 +87,22 @@ bool Data::Load(LevelFile::Stage currentStage)
 
 	return true;
 }
+
+void Data::Free()
+{
+	textures[IMG_GRASS].Free();
+	textures[IMG_ROCK].Free();
+	textures[IMG_LAVA].Free();
+	textures[IMG_SKYBOX].Free();
+	textures[IMG_PLAYER].Free();
+	textures[IMG_PLAYER_NMAP].Free();
+	textures[IMG_CIRCLE_ON].Free();
+	textures[IMG_CIRCLE_OFF].Free();
+	textures[IMG_VORTEX].Free();
+	textures[IMG_KEY].Free();
+	textures[IMG_KEY_NMAP].Free();
+	textures[IMG_PORTAL].Free();
+	textures[IMG_PORTAL_NMAP].Free();
+	textures[IMG_COLUMN].Free();
+	textures[IMG_COLUMN_NMAP].Free();
+}

@@ -29,6 +29,7 @@ public:
 	void Load();
 	void Activate(int program_id);
 	void Deactivate();
+    void Free();
 
 	template <class T>
 	void SetUniform(char* uniform, T value)

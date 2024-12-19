@@ -20,6 +20,7 @@ public:
 	void SetFade(bool b);
 	void Load();
 	void RenderSphere();
+	void Free();
 
 
 private:

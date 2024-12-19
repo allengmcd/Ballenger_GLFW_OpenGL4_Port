@@ -108,3 +108,14 @@ float RespawnPoint::GetZ()
 {
     return z;
 }
+void RespawnPoint::Free()
+{
+	// Delete VAO
+    glDeleteVertexArrays(1, &respawnVAO);
+
+	// Delete VBO
+    glDeleteBuffers(1, &respawnVBO);
+
+	// Delete EBO
+    glDeleteBuffers(1, &respawnEBO);
+}

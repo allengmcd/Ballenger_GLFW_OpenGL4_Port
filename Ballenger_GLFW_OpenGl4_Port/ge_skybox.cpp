@@ -135,3 +135,15 @@ void Skybox::Draw(Camera *Camera)
 	glBindVertexArray(0);
 	glDepthFunc(GL_LESS); // set depth function back to default
 }
+
+void Skybox::Free()
+{
+	// Delete VAO
+    glDeleteVertexArrays(1, &skyboxVAO);
+
+	// Delete VBO
+    glDeleteBuffers(1, &skyboxVBO);
+
+	// Delete EBO
+    glDeleteBuffers(1, &skyboxVAO);
+}

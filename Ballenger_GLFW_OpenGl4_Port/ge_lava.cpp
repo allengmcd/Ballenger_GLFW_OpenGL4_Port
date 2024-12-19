@@ -117,3 +117,15 @@ void Lava::Update()
 		up = (height <= LAVA_HEIGHT_MIN);
 	}
 }
+
+void Lava::Free()
+{
+	// Delete VAO
+    glDeleteVertexArrays(1, &lavaVAO);
+
+	// Delete VBO
+    glDeleteBuffers(1, &lavaVBO);
+
+	// Delete EBO
+    glDeleteBuffers(1, &lavaEBO);
+}

@@ -22,14 +22,17 @@ public:
 	~Model();
 	void Load(Shader *Shader, Data *Data);
 	void Draw(int model_id);
+	void Free();
 	unsigned int playerVAO;
 	unsigned int indexCount;
 
 private:
-	unsigned int models[NUM_MODELS]; 
 	unsigned int modelsVertices[NUM_MODELS]; 
+	unsigned int modelsVAO[NUM_MODELS]; 
+	unsigned int modelsVBO[NUM_MODELS]; 
+	unsigned int modelsEBO[NUM_MODELS]; 
 	Shader *shader;
 	Data *data;
 
-	int GetDisplayList(char* path, unsigned int vertices_key);
+	void GetDisplayList(char* path, unsigned int vertices_key);
 };

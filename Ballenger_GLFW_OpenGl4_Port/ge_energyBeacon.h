@@ -20,7 +20,8 @@ public:
 	float GetZ();
 	float GetYaw();
 	void SetEnergyBeacon(float posx, float posy, float posz, float ang);
-	unsigned int beaconVAO;
+	void Free();
+	unsigned int beaconVAO, beaconVBO, beaconEBO;
 	unsigned int indexCount;
 
 private:

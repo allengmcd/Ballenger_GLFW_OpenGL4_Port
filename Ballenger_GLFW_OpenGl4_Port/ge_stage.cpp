@@ -649,11 +649,20 @@ void Stage::Render()
 }
 
 
-
-
-
 void Stage::Free()
 {
+	data.Free();
+	shader.Free();
+	lava.Free();
+	model.Free();
+	player.Free();
+	terrain.Free();
+	scene.Free();
+	energyBeacon.Free();
 
+	for(unsigned int i=0; i<respawn_points.size(); i++)
+	{
+		respawn_points[i].Free();
+	}
 }
 
