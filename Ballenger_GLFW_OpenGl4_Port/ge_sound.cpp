@@ -55,3 +55,10 @@ void Sound::Update()
 {
 	system->update();
 }
+
+void Sound::Free()
+{
+	ambient1Channel->stop();
+	for(int i=0; i<NUM_SOUNDS; i++) sounds[i]->release();
+    system->release();
+}

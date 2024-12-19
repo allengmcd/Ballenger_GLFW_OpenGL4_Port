@@ -32,6 +32,7 @@ public:
 	void SmoothStop(int sound_id);
 	void StopAll();
 	void Update();
+	void Free();
 
 	FMOD::System*     system; //handle to FMOD engine
     FMOD::Sound*      sounds[NUM_SOUNDS]; //sound that will be loaded and played

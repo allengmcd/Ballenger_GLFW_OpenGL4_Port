@@ -368,7 +368,7 @@ bool Stage::Process()
 			}
 		}
 
-		portal_activated = true;
+		
 		//comprueba si el player atraviesa el portal estando activado
 		if(portal_activated)
 		{
@@ -659,6 +659,7 @@ void Stage::Free()
 	terrain.Free();
 	scene.Free();
 	energyBeacon.Free();
+	sound.Free();
 
 	for(unsigned int i=0; i<respawn_points.size(); i++)
 	{
